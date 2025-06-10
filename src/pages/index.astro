@@ -1,11 +1,27 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+		<section id="home" class="flex flex-col justify-center w-full md:w-3xl lg:w-4xl min-h-dvh gap-8">
+			<h3 class="text-dteal">Hello, my name is</h3>
+			<h1 class="text-3xl md:text-7xl font-bold -mt-6 text-black/80">Daniel Velasco</h1>
+			<p class="text-md text-black/80">I'm a <strong>Full Stack Developer</strong> at Bogotá, Colombia.</p>
+			<p class="text-sm text-dteal -mt-6">Passionate web development student with strong teamwork, communication, and creative problem-solving skills.<br> Eager to take on challenging projects that foster learning, growth, and innovative solutions.
+			</p>
+			<a href="/#contact" class="w-52">
+				<button class="bg-dteal text-white px-4 py-2 rounded-md w-52 cursor-pointer hover:bg-pblue hover:shadow-sm hover:shadow-pblue/50 transition-all duration-300">
+					Get in touch
+				</button>
+			</a>
+		</section>
+		<section id="experience" class="w-full md:w-3xl lg:w-4xl pt-20">
+			<h2 class="text-2xl font-bold text-black/80">Experience</h2>
+			<div class="flex flex-col gap-4 h-dvh">
+				<div class="flex flex-col gap-2">
+					<h3 class="text-lg font-bold text-black/80">Full Stack Developer</h3>
+					<p class="text-sm text-black/80">2024 - Present</p>
+				</div>
+			</div>
+		</section>
 </Layout>
