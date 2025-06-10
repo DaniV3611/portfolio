@@ -1,8 +1,8 @@
 @import "tailwindcss";
+@plugin "@midudev/tailwind-animations";
 
 @theme {
-  --color-aqua: #d4f1f4;
-  --color-cteal: #0097a7;
-  --color-pblue: #005f6a;
-  --color-dteal: #003d40;
+  --color-ivory: #efe9e0;
+  --color-jet: #302f2d;
+  --color-munsell: #3587a4;
 }
