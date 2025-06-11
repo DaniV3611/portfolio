@@ -9,7 +9,7 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
-import useMobile from "../hooks/useMobile";
+import useMobile from "../../hooks/useMobile";
 import "./Header.css";
 
 const Header = () => {
@@ -129,7 +129,7 @@ const Header = () => {
             <Github className="stroke-2" />
           </a>
           <a
-            href="https://www.linkedin.com/in/daniel-velasco-3611/"
+            href="https://www.linkedin.com/in/daniel-velasco-gonzalez-1831a12b5/"
             className="rounded-md p-1 text-ivory bg-jet/90"
           >
             <Linkedin className="stroke-2" />
@@ -150,38 +150,38 @@ const Header = () => {
   /** Desktop */
   return (
     <header
-      className={`w-full md:w-3xl lg:w-4xl h-12 fixed top-0 z-50 px-2 mt-2 rounded-full ${
+      className={`w-auto h-10 fixed top-0 z-50 px-2 mt-2 rounded-full ${
         isScrolled && "bg-jet/10 backdrop-blur-sm border border-jet shadow-md"
       } transition-all duration-300 contain-content`}
     >
-      <div className="flex justify-between items-center h-full px-4">
-        <a href="/#" className="text-2xl font-bold">
+      <div className="flex justify-center items-center h-full px-4 text-sm">
+        {/* <a href="/#" className="text-2xl font-bold">
           Daniel Velasco
-        </a>
+        </a> */}
         <div className="flex gap-4">
           <a href="/#" className="flex items-center gap-2 hover:underline">
-            <Home />
+            <Home size={20} />
             Home
           </a>
           <a
             href="/#experience"
             className="flex items-center gap-2 hover:underline"
           >
-            <Briefcase />
+            <Briefcase size={20} />
             Experience
           </a>
           <a
             href="/#projects"
             className="flex items-center gap-2 hover:underline"
           >
-            <Code />
+            <Code size={20} />
             Projects
           </a>
           <a
             href="/#contact"
             className="flex items-center gap-2 hover:underline"
           >
-            <Mail />
+            <Mail size={20} />
             Contact
           </a>
         </div>
