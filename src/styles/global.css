@@ -6,3 +6,7 @@
   --color-jet: #302f2d;
   --color-munsell: #3587a4;
 }
+
+.animate-delay-1500 {
+  animation-delay: 1500ms;
+}

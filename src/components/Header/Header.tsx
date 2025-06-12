@@ -159,27 +159,30 @@ const Header = () => {
           Daniel Velasco
         </a> */}
         <div className="flex gap-4">
-          <a href="/#" className="flex items-center gap-2 hover:underline">
+          <a
+            href="/#"
+            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-700"
+          >
             <Home size={20} />
             Home
           </a>
           <a
             href="/#experience"
-            className="flex items-center gap-2 hover:underline"
+            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-800"
           >
             <Briefcase size={20} />
             Experience
           </a>
           <a
             href="/#projects"
-            className="flex items-center gap-2 hover:underline"
+            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-900"
           >
             <Code size={20} />
             Projects
           </a>
           <a
             href="/#contact"
-            className="flex items-center gap-2 hover:underline"
+            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-1000"
           >
             <Mail size={20} />
             Contact
