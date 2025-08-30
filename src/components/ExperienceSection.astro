@@ -1,9 +1,12 @@
+---
+import { experience } from "../data/experience";
+import ExperiencePoint from "./ExperiencePoint.astro";
+---
 <section id="experience" class="w-full md:w-3xl lg:w-4xl pt-20">
-    <h2 class="text-2xl font-bold text-black/80">Experience</h2>
-    <div class="flex flex-col gap-4 h-dvh">
-        <div class="flex flex-col gap-2">
-            <h3 class="text-lg font-bold text-black/80">Full Stack Developer</h3>
-            <p class="text-sm text-black/80">2024 - Present</p>
-        </div>
+    <h2 class="text-2xl font-bold text-black/80">My experience</h2>
+    <div class="flex flex-col gap-4 p-4 h-dvh">
+        {experience.map((experience) => (
+            <ExperiencePoint experience={experience} />
+        ))}
     </div>
 </section>
