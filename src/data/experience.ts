@@ -26,7 +26,7 @@ export const experience: TExperience[] = [
     company: "SAM | Automated Meteorological Services",
     position: "Software Developer & Data Architect",
     startDate: "December 2024",
-    endDate: "Present",
+    endDate: "December 2025",
     location: "Bogotá, Colombia",
     responsibilities: [
       "Architected and developed a data-driven climate forecasting platform for solar energy systems.",
