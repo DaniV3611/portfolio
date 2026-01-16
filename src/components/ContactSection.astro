@@ -1,0 +1,26 @@
+---
+import { Mail, Phone } from "@lucide/astro";
+---
+
+<section id="contact" class="w-full md:w-3xl lg:w-4xl pt-20 pb-20">
+    <h2 class="text-2xl font-bold text-jet/80 mb-6">Get In Touch</h2>
+    <div class="flex flex-col gap-6 p-8 rounded-lg border border-jet/10 bg-ivory/50">
+        <p class="text-sm text-jet/80 leading-relaxed">
+            I'm currently open to new opportunities and collaborations. Whether you have a project in mind or just want to connect, feel free to reach out!
+        </p>
+        <div class="flex flex-col gap-4">
+            <a href="mailto:dvelascogz@gmail.com" class="flex items-center gap-3 text-jet/80 hover:text-munsell transition-colors duration-300 group">
+                <div class="p-2 rounded-lg bg-jet/5 group-hover:bg-munsell/10 transition-all duration-300">
+                    <Mail size={20} />
+                </div>
+                <span class="text-sm font-medium">dvelascogz@gmail.com</span>
+            </a>
+            <a href="tel:+573209168731" class="flex items-center gap-3 text-jet/80 hover:text-munsell transition-colors duration-300 group">
+                <div class="p-2 rounded-lg bg-jet/5 group-hover:bg-munsell/10 transition-all duration-300">
+                    <Phone size={20} />
+                </div>
+                <span class="text-sm font-medium">+57 320-916-8731</span>
+            </a>
+        </div>
+    </div>
+</section>

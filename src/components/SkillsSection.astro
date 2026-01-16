@@ -1,0 +1,21 @@
+---
+import { skills } from "../data/skills";
+---
+
+<section id="skills" class="w-full md:w-3xl lg:w-4xl pt-20 pb-20">
+    <h2 class="text-2xl font-bold text-jet/80 mb-6">Technical Skills</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {skills.map((skillCategory) => (
+            <div class="flex flex-col gap-3 p-5 rounded-lg border border-jet/10 hover:border-munsell/30 hover:shadow-lg transition-all duration-300 bg-ivory/50">
+                <h3 class="text-md font-bold text-munsell">{skillCategory.category}</h3>
+                <div class="flex flex-wrap gap-2">
+                    {skillCategory.skills.map((skill: string) => (
+                        <span class="px-3 py-1 text-xs font-medium bg-jet/5 text-jet rounded-full border border-jet/10 hover:bg-munsell/10 hover:border-munsell/30 transition-all duration-200">
+                            {skill}
+                        </span>
+                    ))}
+                </div>
+            </div>
+        ))}
+    </div>
+</section>

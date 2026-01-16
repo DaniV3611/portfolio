@@ -1,11 +1,13 @@
 import {
   Briefcase,
   Code,
+  GraduationCap,
   Github,
   Home,
   Linkedin,
   Mail,
   Menu,
+  Wrench,
   X,
 } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
@@ -105,11 +107,25 @@ const Header = () => {
             Experience
           </a>
           <a
+            href="/#education"
+            className="flex items-center gap-2 text-2xl font-semibold hover:underline"
+          >
+            <GraduationCap className="stroke-3" />
+            Education
+          </a>
+          <a
             href="/#projects"
             className="flex items-center gap-2 text-2xl font-semibold hover:underline"
           >
             <Code className="stroke-3" />
             Projects
+          </a>
+          <a
+            href="/#skills"
+            className="flex items-center gap-2 text-2xl font-semibold hover:underline"
+          >
+            <Wrench className="stroke-3" />
+            Skills
           </a>
           <a
             href="/#contact"
@@ -174,15 +190,29 @@ const Header = () => {
             Experience
           </a>
           <a
-            href="/#projects"
+            href="/#education"
             className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-900"
+          >
+            <GraduationCap size={20} />
+            Education
+          </a>
+          <a
+            href="/#projects"
+            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-1000"
           >
             <Code size={20} />
             Projects
           </a>
           <a
+            href="/#skills"
+            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-1100"
+          >
+            <Wrench size={20} />
+            Skills
+          </a>
+          <a
             href="/#contact"
-            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-1000"
+            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-1200"
           >
             <Mail size={20} />
             Contact
