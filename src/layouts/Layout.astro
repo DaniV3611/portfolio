@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header/Header.tsx";
+import CursorGlow from "../components/CursorGlow.tsx";
 ---
 <!doctype html>
 <html lang="en">
@@ -16,6 +17,9 @@ import Header from "../components/Header/Header.tsx";
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 	</head>
 	<body class="bg-background text-text-primary font-['Inter',sans-serif] antialiased">
+		<!-- Cursor glow effect -->
+		<CursorGlow client:load />
+		
 		<!-- Ambient background effects -->
 		<div class="fixed inset-0 bg-grid pointer-events-none"></div>
 		<div class="fixed top-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>

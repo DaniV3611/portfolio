@@ -31,7 +31,7 @@ const categoryConfig: Record<string, { icon: any; color: string; bgColor: string
             const config = categoryConfig[skillCategory.category] || { icon: Code, color: "text-accent", bgColor: "bg-accent/10 border-accent/20" };
             const IconComponent = config.icon;
             return (
-                <div class="group p-5 rounded-2xl bg-surface border border-border hover:border-border-hover transition-all duration-300 hover:shadow-lg hover:shadow-accent/5">
+                <div class="group p-5 rounded-2xl glass-card transition-all duration-300 hover:shadow-lg hover:shadow-accent/5">
                     <!-- Category Header -->
                     <div class="flex items-center gap-3 mb-4">
                         <div class={`p-2 rounded-lg border ${config.bgColor}`}>

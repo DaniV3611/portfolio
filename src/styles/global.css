@@ -85,6 +85,19 @@
   -webkit-backdrop-filter: blur(8px);
 }
 
+/* Glass card effect for cards */
+.glass-card {
+  background: rgba(18, 18, 20, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card:hover {
+  background: rgba(26, 26, 29, 0.7);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
 /* Glow effects */
 .glow-accent {
   box-shadow: 0 0 40px -10px rgba(59, 130, 246, 0.3);
