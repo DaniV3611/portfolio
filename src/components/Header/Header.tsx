@@ -150,8 +150,8 @@ const Header = () => {
   /** Desktop */
   return (
     <header
-      className={`w-auto h-10 fixed top-0 z-50 px-2 mt-2 rounded-full ${
-        isScrolled && "bg-jet/10 backdrop-blur-sm border border-jet shadow-md"
+      className={`w-auto h-10 fixed top-0 z-50 px-2 mt-2 rounded-full border border-ivory ${
+        isScrolled && "bg-jet/10 backdrop-blur-sm border-jet shadow-md"
       } transition-all duration-300 contain-content`}
     >
       <div className="flex justify-center items-center h-full px-4 text-sm">
