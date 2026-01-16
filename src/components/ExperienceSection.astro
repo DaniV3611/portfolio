@@ -1,12 +1,31 @@
 ---
 import { experience } from "../data/experience";
 import ExperiencePoint from "./ExperiencePoint.astro";
+import { Briefcase } from "@lucide/astro";
 ---
-<section id="experience" class="w-full md:w-3xl lg:w-4xl pt-20">
-    <h2 class="text-2xl font-bold text-jet/80 mb-6">Work Experience</h2>
-    <div class="flex flex-col gap-4">
-        {experience.map((experience) => (
-            <ExperiencePoint experience={experience} />
-        ))}
+
+<section id="experience" class="w-full py-20">
+    <!-- Section Header -->
+    <div class="flex items-center gap-4 mb-12">
+        <div class="p-3 rounded-xl bg-accent/10 border border-accent/20">
+            <Briefcase class="w-6 h-6 text-accent" />
+        </div>
+        <div>
+            <h2 class="text-3xl font-bold text-text-primary">Work Experience</h2>
+            <p class="text-text-secondary mt-1">My professional journey</p>
+        </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-secondary to-transparent"></div>
+        
+        <!-- Experience items -->
+        <div class="space-y-8">
+            {experience.map((exp, index) => (
+                <ExperiencePoint experience={exp} index={index} />
+            ))}
+        </div>
     </div>
 </section>

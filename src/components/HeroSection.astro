@@ -1,20 +1,63 @@
 ---
-import { Mail } from "@lucide/astro";
+import { ArrowDown, Mail } from "@lucide/astro";
 ---
 
-<section id="home" class="flex flex-col justify-center w-full md:w-3xl lg:w-4xl min-h-dvh gap-8">
-    <h3 class="animate-fade-in-down text-jet/70">Hello, my name is</h3>
-    <h1 class="text-3xl md:text-7xl font-bold -mt-6 drop-shadow-md animate-fade-in-right animate-delay-300 text-jet">Daniel Velasco</h1>
-    <p class="text-md animate-fade-in-up animate-delay-500 text-jet/90">
-        <strong>Computer Science and AI Engineering Student</strong> and <strong>AI Developer</strong> based in Bogotá, Colombia
+<section id="home" class="flex flex-col justify-center w-full min-h-dvh py-20">
+    <!-- Status badge -->
+    <div class="animate-fade-in-down mb-8">
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface border border-border text-sm text-text-secondary">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
+            </span>
+            Available for new opportunities
+        </span>
+    </div>
+
+    <!-- Main heading -->
+    <div class="space-y-4 mb-8">
+        <p class="text-text-secondary text-lg animate-fade-in-down animate-delay-100">
+            Hello, I'm
+        </p>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight animate-fade-in-right animate-delay-200">
+            <span class="gradient-text">Daniel Velasco</span>
+        </h1>
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-text-secondary animate-fade-in-right animate-delay-300">
+            Software Developer & AI Engineer
+        </h2>
+    </div>
+
+    <!-- Description -->
+    <p class="text-lg text-text-secondary leading-relaxed max-w-2xl mb-10 animate-fade-in-up animate-delay-400">
+        I build <span class="text-text-primary font-medium">production-ready full-stack</span> and 
+        <span class="text-text-primary font-medium">AI-driven systems</span>. Focused on 
+        <span class="text-accent">backend architecture</span>, 
+        <span class="text-secondary">cloud deployment</span>, and modern frontend development.
     </p>
-    <p class="text-sm -mt-6 animate-fade-in-up animate-delay-700 text-jet/80 leading-relaxed">
-        Experience building production-ready full-stack and AI-driven systems. Strong focus on backend architecture, cloud deployment, and modern frontend development with React, delivering scalable and user-focused applications.
-    </p>
-    <a href="mailto:dvelascogz@gmail.com" class="w-52 animate-fade-in animate-delay-1000">
-        <button class="bg-jet/5 border hover:bg-munsell/10 hover:border-munsell border-jet font-bold px-4 py-2 rounded-md w-52 cursor-pointer shadow-md transition-all duration-300 flex flex-row gap-2 items-center justify-center text-jet">
-            <Mail />
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-wrap gap-4 animate-fade-in-up animate-delay-500">
+        <a href="mailto:dvelascogz@gmail.com" 
+           class="group inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-hover text-white font-medium rounded-lg transition-all duration-300 glow-accent-hover">
+            <Mail size={20} />
             Get in touch
-        </button>
-    </a>
+        </a>
+        <a href="/#experience" 
+           class="inline-flex items-center gap-2 px-6 py-3 bg-surface hover:bg-surface-elevated border border-border hover:border-border-hover text-text-primary font-medium rounded-lg transition-all duration-300">
+            View my work
+            <ArrowDown size={20} class="animate-bounce" />
+        </a>
+    </div>
+
+    <!-- Tech stack preview -->
+    <div class="mt-16 animate-fade-in-up animate-delay-700">
+        <p class="text-text-muted text-sm mb-4 uppercase tracking-wider">Tech I work with</p>
+        <div class="flex flex-wrap gap-3">
+            {["React", "TypeScript", "Python", "FastAPI", "PostgreSQL", "Docker", "AWS"].map((tech) => (
+                <span class="px-3 py-1.5 text-sm bg-surface border border-border rounded-md text-text-secondary hover:text-text-primary hover:border-accent/50 transition-all duration-300">
+                    {tech}
+                </span>
+            ))}
+        </div>
+    </div>
 </section>

@@ -1,27 +1,60 @@
 ---
 import { education } from "../data/education";
+import { GraduationCap, MapPin, Calendar, Award } from "@lucide/astro";
 ---
 
-<section id="education" class="w-full md:w-3xl lg:w-4xl pt-20">
-    <h2 class="text-2xl font-bold text-jet/80 mb-6">Education</h2>
-    <div class="flex flex-col gap-4">
+<section id="education" class="w-full py-20">
+    <!-- Section Header -->
+    <div class="flex items-center gap-4 mb-12">
+        <div class="p-3 rounded-xl bg-secondary/10 border border-secondary/20">
+            <GraduationCap class="w-6 h-6 text-secondary" />
+        </div>
+        <div>
+            <h2 class="text-3xl font-bold text-text-primary">Education</h2>
+            <p class="text-text-secondary mt-1">Academic background</p>
+        </div>
+    </div>
+
+    <!-- Education Cards -->
+    <div class="space-y-6">
         {education.map((edu) => (
-            <div class="flex flex-col gap-3 p-6 rounded-lg border border-jet/10 hover:border-munsell/30 hover:shadow-lg transition-all duration-300 bg-ivory/50">
-                <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+            <div class="group p-6 rounded-2xl bg-surface border border-border hover:border-secondary/30 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/5">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                     <div class="flex-1">
-                        <h3 class="text-lg font-semibold text-jet">{edu.degree}</h3>
-                        <p class="text-md font-bold text-munsell">{edu.institution}</p>
+                        <h3 class="text-xl font-semibold text-text-primary group-hover:text-secondary transition-colors duration-300">
+                            {edu.degree}
+                        </h3>
+                        <p class="text-lg font-medium text-secondary mt-1">{edu.institution}</p>
                     </div>
-                    <div class="text-sm text-jet/60 md:text-right">
-                        <p>{edu.startDate} - {edu.endDate}</p>
-                        <p class="text-xs">{edu.location}</p>
+                    <div class="flex flex-col gap-2 text-sm text-text-secondary">
+                        <div class="flex items-center gap-2">
+                            <Calendar class="w-4 h-4 text-text-muted" />
+                            <span>{edu.startDate} - {edu.endDate}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <MapPin class="w-4 h-4 text-text-muted" />
+                            <span>{edu.location}</span>
+                        </div>
                     </div>
                 </div>
-                <ul class="list-disc list-inside space-y-1 text-sm text-jet/80">
-                    {edu.highlights.map((highlight: string) => (
-                        <li class="leading-relaxed">{highlight}</li>
-                    ))}
-                </ul>
+
+                <!-- Highlights -->
+                {edu.highlights.length > 0 && (
+                    <div class="mt-4 pt-4 border-t border-border">
+                        <div class="flex items-center gap-2 mb-3">
+                            <Award class="w-4 h-4 text-accent" />
+                            <span class="text-sm font-medium text-text-secondary">Achievements</span>
+                        </div>
+                        <ul class="space-y-2">
+                            {edu.highlights.map((highlight: string) => (
+                                <li class="flex items-start gap-3 text-text-secondary">
+                                    <span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary/60 flex-shrink-0"></span>
+                                    <span class="leading-relaxed">{highlight}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
             </div>
         ))}
     </div>

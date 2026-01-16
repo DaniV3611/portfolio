@@ -1,21 +1,55 @@
 ---
 import { skills } from "../data/skills";
+import { Wrench, Code, Server, Database, Cloud, Brain } from "@lucide/astro";
+
+// Map categories to icons and colors
+const categoryConfig: Record<string, { icon: any; color: string; bgColor: string }> = {
+    "Languages": { icon: Code, color: "text-accent", bgColor: "bg-accent/10 border-accent/20" },
+    "Frontend": { icon: Code, color: "text-secondary", bgColor: "bg-secondary/10 border-secondary/20" },
+    "Backend": { icon: Server, color: "text-success", bgColor: "bg-success/10 border-success/20" },
+    "Databases": { icon: Database, color: "text-accent", bgColor: "bg-accent/10 border-accent/20" },
+    "Cloud & DevOps": { icon: Cloud, color: "text-secondary", bgColor: "bg-secondary/10 border-secondary/20" },
+    "Data & AI": { icon: Brain, color: "text-accent", bgColor: "bg-accent/10 border-accent/20" },
+};
 ---
 
-<section id="skills" class="w-full md:w-3xl lg:w-4xl pt-20 pb-20">
-    <h2 class="text-2xl font-bold text-jet/80 mb-6">Technical Skills</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {skills.map((skillCategory) => (
-            <div class="flex flex-col gap-3 p-5 rounded-lg border border-jet/10 hover:border-munsell/30 hover:shadow-lg transition-all duration-300 bg-ivory/50">
-                <h3 class="text-md font-bold text-munsell">{skillCategory.category}</h3>
-                <div class="flex flex-wrap gap-2">
-                    {skillCategory.skills.map((skill: string) => (
-                        <span class="px-3 py-1 text-xs font-medium bg-jet/5 text-jet rounded-full border border-jet/10 hover:bg-munsell/10 hover:border-munsell/30 transition-all duration-200">
-                            {skill}
-                        </span>
-                    ))}
+<section id="skills" class="w-full py-20">
+    <!-- Section Header -->
+    <div class="flex items-center gap-4 mb-12">
+        <div class="p-3 rounded-xl bg-accent/10 border border-accent/20">
+            <Wrench class="w-6 h-6 text-accent" />
+        </div>
+        <div>
+            <h2 class="text-3xl font-bold text-text-primary">Technical Skills</h2>
+            <p class="text-text-secondary mt-1">Technologies I work with</p>
+        </div>
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {skills.map((skillCategory) => {
+            const config = categoryConfig[skillCategory.category] || { icon: Code, color: "text-accent", bgColor: "bg-accent/10 border-accent/20" };
+            const IconComponent = config.icon;
+            return (
+                <div class="group p-5 rounded-2xl bg-surface border border-border hover:border-border-hover transition-all duration-300 hover:shadow-lg hover:shadow-accent/5">
+                    <!-- Category Header -->
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class={`p-2 rounded-lg border ${config.bgColor}`}>
+                            <IconComponent class={`w-4 h-4 ${config.color}`} />
+                        </div>
+                        <h3 class="font-semibold text-text-primary">{skillCategory.category}</h3>
+                    </div>
+
+                    <!-- Skills Tags -->
+                    <div class="flex flex-wrap gap-2">
+                        {skillCategory.skills.map((skill: string) => (
+                            <span class="px-3 py-1.5 text-sm bg-surface-elevated border border-border rounded-lg text-text-secondary hover:text-text-primary hover:border-accent/50 hover:bg-accent/5 transition-all duration-200 cursor-default">
+                                {skill}
+                            </span>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        ))}
+            );
+        })}
     </div>
 </section>

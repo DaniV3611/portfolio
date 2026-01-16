@@ -1,26 +1,118 @@
 ---
-import { Mail, Phone } from "@lucide/astro";
+import { Mail, Phone, MapPin, Send, Github, Linkedin, ArrowUpRight } from "@lucide/astro";
 ---
 
-<section id="contact" class="w-full md:w-3xl lg:w-4xl pt-20 pb-20">
-    <h2 class="text-2xl font-bold text-jet/80 mb-6">Get In Touch</h2>
-    <div class="flex flex-col gap-6 p-8 rounded-lg border border-jet/10 bg-ivory/50">
-        <p class="text-sm text-jet/80 leading-relaxed">
-            I'm currently open to new opportunities and collaborations. Whether you have a project in mind or just want to connect, feel free to reach out!
-        </p>
-        <div class="flex flex-col gap-4">
-            <a href="mailto:dvelascogz@gmail.com" class="flex items-center gap-3 text-jet/80 hover:text-munsell transition-colors duration-300 group">
-                <div class="p-2 rounded-lg bg-jet/5 group-hover:bg-munsell/10 transition-all duration-300">
-                    <Mail size={20} />
+<section id="contact" class="w-full py-20">
+    <!-- Section Header -->
+    <div class="flex items-center gap-4 mb-12">
+        <div class="p-3 rounded-xl bg-gradient-to-br from-accent/10 to-secondary/10 border border-accent/20">
+            <Mail class="w-6 h-6 text-accent" />
+        </div>
+        <div>
+            <h2 class="text-3xl font-bold text-text-primary">Get In Touch</h2>
+            <p class="text-text-secondary mt-1">Let's work together</p>
+        </div>
+    </div>
+
+    <!-- Contact Card -->
+    <div class="relative p-8 rounded-2xl bg-surface border border-border overflow-hidden">
+        <!-- Background gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-secondary/5 pointer-events-none"></div>
+        
+        <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Left side - Message -->
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-2xl font-semibold text-text-primary mb-3">
+                        Let's build something amazing together
+                    </h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        I'm currently open to new opportunities and collaborations. Whether you have a project in mind, 
+                        want to discuss technology, or just want to connect, feel free to reach out!
+                    </p>
                 </div>
-                <span class="text-sm font-medium">dvelascogz@gmail.com</span>
-            </a>
-            <a href="tel:+573209168731" class="flex items-center gap-3 text-jet/80 hover:text-munsell transition-colors duration-300 group">
-                <div class="p-2 rounded-lg bg-jet/5 group-hover:bg-munsell/10 transition-all duration-300">
-                    <Phone size={20} />
+
+                <!-- Quick Contact -->
+                <div class="space-y-4">
+                    <a 
+                        href="mailto:dvelascogz@gmail.com" 
+                        class="flex items-center gap-4 p-4 rounded-xl bg-surface-elevated border border-border hover:border-accent/50 transition-all duration-300 group"
+                    >
+                        <div class="p-3 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
+                            <Mail class="w-5 h-5 text-accent" />
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm text-text-muted">Email</p>
+                            <p class="text-text-primary font-medium group-hover:text-accent transition-colors">dvelascogz@gmail.com</p>
+                        </div>
+                        <ArrowUpRight class="w-5 h-5 text-text-muted group-hover:text-accent transition-colors" />
+                    </a>
+
+                    <a 
+                        href="tel:+573209168731" 
+                        class="flex items-center gap-4 p-4 rounded-xl bg-surface-elevated border border-border hover:border-secondary/50 transition-all duration-300 group"
+                    >
+                        <div class="p-3 rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
+                            <Phone class="w-5 h-5 text-secondary" />
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm text-text-muted">Phone</p>
+                            <p class="text-text-primary font-medium group-hover:text-secondary transition-colors">+57 320-916-8731</p>
+                        </div>
+                        <ArrowUpRight class="w-5 h-5 text-text-muted group-hover:text-secondary transition-colors" />
+                    </a>
+
+                    <div class="flex items-center gap-4 p-4 rounded-xl bg-surface-elevated border border-border">
+                        <div class="p-3 rounded-lg bg-success/10">
+                            <MapPin class="w-5 h-5 text-success" />
+                        </div>
+                        <div>
+                            <p class="text-sm text-text-muted">Location</p>
+                            <p class="text-text-primary font-medium">Bogota, Colombia</p>
+                        </div>
+                    </div>
                 </div>
-                <span class="text-sm font-medium">+57 320-916-8731</span>
-            </a>
+            </div>
+
+            <!-- Right side - Social & CTA -->
+            <div class="flex flex-col justify-between">
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-sm text-text-muted uppercase tracking-wider mb-4">Find me on</p>
+                        <div class="flex gap-4">
+                            <a 
+                                href="https://github.com/daniv3611" 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-center gap-3 px-5 py-3 rounded-xl bg-surface-elevated border border-border hover:border-accent/50 transition-all duration-300 group"
+                            >
+                                <Github class="w-5 h-5 text-text-secondary group-hover:text-accent transition-colors" />
+                                <span class="font-medium text-text-secondary group-hover:text-text-primary transition-colors">GitHub</span>
+                            </a>
+                            <a 
+                                href="https://www.linkedin.com/in/daniel-velasco-gonzalez-1831a12b5/" 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-center gap-3 px-5 py-3 rounded-xl bg-surface-elevated border border-border hover:border-secondary/50 transition-all duration-300 group"
+                            >
+                                <Linkedin class="w-5 h-5 text-text-secondary group-hover:text-secondary transition-colors" />
+                                <span class="font-medium text-text-secondary group-hover:text-text-primary transition-colors">LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="mt-8 lg:mt-0">
+                    <a 
+                        href="mailto:dvelascogz@gmail.com"
+                        class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-accent to-accent-muted hover:from-accent-hover hover:to-accent text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:scale-[1.02]"
+                    >
+                        <Send class="w-5 h-5" />
+                        Send me a message
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>

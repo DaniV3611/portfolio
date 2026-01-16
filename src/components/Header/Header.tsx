@@ -14,14 +14,20 @@ import { useEffect, useState, useRef } from "react";
 import useMobile from "../../hooks/useMobile";
 import "./Header.css";
 
+const navItems = [
+  { href: "/#", label: "Home", icon: Home },
+  { href: "/#experience", label: "Experience", icon: Briefcase },
+  { href: "/#education", label: "Education", icon: GraduationCap },
+  { href: "/#projects", label: "Projects", icon: Code },
+  { href: "/#skills", label: "Skills", icon: Wrench },
+  { href: "/#contact", label: "Contact", icon: Mail },
+];
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-
   const asideRef = useRef<HTMLElement>(null);
-
   const isMobile = useMobile();
 
   useEffect(() => {
@@ -34,10 +40,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        asideRef.current &&
-        !asideRef.current.contains(event.target as Node)
-      ) {
+      if (asideRef.current && !asideRef.current.contains(event.target as Node)) {
         handleClose();
       }
     };
@@ -51,11 +54,13 @@ const Header = () => {
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
       document.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
@@ -67,158 +72,150 @@ const Header = () => {
     }, 300);
   };
 
+  const handleNavClick = () => {
+    if (isMobile) {
+      handleClose();
+    }
+  };
+
+  // Mobile Header
   if (isMobile) {
     if (!isOpen) {
       return (
-        <header className="fixed top-4 left-4">
-          <div
-            className={`flex justify-center items-center rounded ${
-              isScrolled &&
-              "bg-jet/10 backdrop-blur-sm border border-jet shadow-md"
-            } transition-colors duration-300`}
-            onClick={() => setIsOpen(!isOpen)}
+        <header className="fixed top-4 left-4 z-50">
+          <button
+            className={`p-2 rounded-lg transition-all duration-300 ${
+              isScrolled
+                ? "glass border border-border"
+                : "bg-transparent"
+            }`}
+            onClick={() => setIsOpen(true)}
+            aria-label="Open menu"
           >
-            <Menu className="stroke-2 size-8" />
-          </div>
+            <Menu className="w-6 h-6 text-text-primary" />
+          </button>
         </header>
       );
     }
+
     return (
-      <aside
-        ref={asideRef}
-        className={`fixed top-0 left-0 z-50 h-dvh w-xs bg-jet/10 backdrop-blur-sm border border-jet shadow-md ${
-          isClosing ? "animate-slide-out-left" : "animate-slide-in-left"
-        } flex flex-col justify-between`}
-      >
-        {/** Menu */}
-        <div className="flex flex-col gap-4 mt-4 ml-4">
-          <a
-            href="/#"
-            className="flex items-center gap-2 text-2xl font-semibold hover:underline"
-          >
-            <Home className="stroke-3" />
-            Home
-          </a>
-          <a
-            href="/#experience"
-            className="flex items-center gap-2 text-2xl font-semibold hover:underline"
-          >
-            <Briefcase className="stroke-3" />
-            Experience
-          </a>
-          <a
-            href="/#education"
-            className="flex items-center gap-2 text-2xl font-semibold hover:underline"
-          >
-            <GraduationCap className="stroke-3" />
-            Education
-          </a>
-          <a
-            href="/#projects"
-            className="flex items-center gap-2 text-2xl font-semibold hover:underline"
-          >
-            <Code className="stroke-3" />
-            Projects
-          </a>
-          <a
-            href="/#skills"
-            className="flex items-center gap-2 text-2xl font-semibold hover:underline"
-          >
-            <Wrench className="stroke-3" />
-            Skills
-          </a>
-          <a
-            href="/#contact"
-            className="flex items-center gap-2 text-2xl font-semibold hover:underline"
-          >
-            <Mail className="stroke-3" />
-            Contact
-          </a>
-        </div>
-
-        {/** Socials */}
-        <div className="flex flex-row gap-4 ml-4 mb-4">
-          <a
-            href="https://github.com/daniv3611"
-            className="rounded-md p-1 text-ivory bg-jet/90"
-          >
-            <Github className="stroke-2" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/daniel-velasco-gonzalez-1831a12b5/"
-            className="rounded-md p-1 text-ivory bg-jet/90"
-          >
-            <Linkedin className="stroke-2" />
-          </a>
-        </div>
-
-        {/** Close Button */}
-        <div
-          className="fixed top-4 right-4 cursor-pointer"
-          onClick={handleClose}
+      <>
+        {/* Backdrop */}
+        <div className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm" />
+        
+        {/* Mobile Menu */}
+        <aside
+          ref={asideRef}
+          className={`fixed top-0 left-0 z-50 h-dvh w-72 glass border-r border-border ${
+            isClosing ? "animate-slide-out-left" : "animate-slide-in-left"
+          } flex flex-col`}
         >
-          <X className="stroke-2 size-8" />
-        </div>
-      </aside>
+          {/* Header */}
+          <div className="flex items-center justify-between p-4 border-b border-border">
+            <span className="text-lg font-semibold gradient-text">Menu</span>
+            <button
+              className="p-2 rounded-lg hover:bg-surface-elevated transition-colors"
+              onClick={handleClose}
+              aria-label="Close menu"
+            >
+              <X className="w-5 h-5 text-text-secondary" />
+            </button>
+          </div>
+
+          {/* Navigation */}
+          <nav className="flex-1 p-4">
+            <ul className="space-y-2">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={handleNavClick}
+                    className="flex items-center gap-3 px-4 py-3 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all duration-200 group"
+                  >
+                    <item.icon className="w-5 h-5 group-hover:text-accent transition-colors" />
+                    <span className="font-medium">{item.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Social Links */}
+          <div className="p-4 border-t border-border">
+            <p className="text-xs text-text-muted uppercase tracking-wider mb-3">Connect</p>
+            <div className="flex gap-3">
+              <a
+                href="https://github.com/daniv3611"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-lg bg-surface hover:bg-surface-elevated border border-border hover:border-accent/50 transition-all duration-200"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5 text-text-secondary" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/daniel-velasco-gonzalez-1831a12b5/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-lg bg-surface hover:bg-surface-elevated border border-border hover:border-accent/50 transition-all duration-200"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5 text-text-secondary" />
+              </a>
+            </div>
+          </div>
+        </aside>
+      </>
     );
   }
 
-  /** Desktop */
+  // Desktop Header
   return (
     <header
-      className={`w-auto h-10 fixed top-0 z-50 px-2 mt-2 rounded-full border border-ivory ${
-        isScrolled && "bg-jet/10 backdrop-blur-sm border-jet shadow-md"
-      } transition-all duration-300 contain-content`}
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "glass border border-border shadow-lg shadow-black/10"
+          : "bg-transparent"
+      } rounded-full px-2`}
     >
-      <div className="flex justify-center items-center h-full px-4 text-sm">
-        {/* <a href="/#" className="text-2xl font-bold">
-          Daniel Velasco
-        </a> */}
-        <div className="flex gap-4">
+      <nav className="flex items-center h-12 px-4">
+        <ul className="flex items-center gap-1">
+          {navItems.map((item, index) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-surface-elevated/50 transition-all duration-200 animate-fade-in-down`}
+                style={{ animationDelay: `${(index + 1) * 100}ms` }}
+              >
+                <item.icon className="w-4 h-4" />
+                <span className="hidden lg:inline">{item.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        
+        {/* Social icons for desktop */}
+        <div className="hidden md:flex items-center gap-1 ml-4 pl-4 border-l border-border">
           <a
-            href="/#"
-            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-700"
+            href="https://github.com/daniv3611"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-full text-text-secondary hover:text-text-primary hover:bg-surface-elevated/50 transition-all duration-200"
+            aria-label="GitHub"
           >
-            <Home size={20} />
-            Home
+            <Github className="w-4 h-4" />
           </a>
           <a
-            href="/#experience"
-            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-800"
+            href="https://www.linkedin.com/in/daniel-velasco-gonzalez-1831a12b5/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-full text-text-secondary hover:text-text-primary hover:bg-surface-elevated/50 transition-all duration-200"
+            aria-label="LinkedIn"
           >
-            <Briefcase size={20} />
-            Experience
-          </a>
-          <a
-            href="/#education"
-            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-900"
-          >
-            <GraduationCap size={20} />
-            Education
-          </a>
-          <a
-            href="/#projects"
-            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-1000"
-          >
-            <Code size={20} />
-            Projects
-          </a>
-          <a
-            href="/#skills"
-            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-1100"
-          >
-            <Wrench size={20} />
-            Skills
-          </a>
-          <a
-            href="/#contact"
-            className="flex items-center gap-2 hover:underline animate-fade-in-down animate-delay-1200"
-          >
-            <Mail size={20} />
-            Contact
+            <Linkedin className="w-4 h-4" />
           </a>
         </div>
-      </div>
+      </nav>
     </header>
   );
 };
