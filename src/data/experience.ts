@@ -1,67 +1,52 @@
 type TExperience = {
   company: string;
   position: string;
-  description: string;
   startDate: string;
   endDate: string;
   location: string;
-  technologies: string[];
   responsibilities: string[];
-  achievements: string[];
 };
 
 export const experience: TExperience[] = [
   {
     company: "Dantalabs",
-    position: "Full Stack Developer and IA Researcher",
-    description:
-      "I've developed web applications using React, Tailwind CSS, TypeScript, Python, FastAPI, PostgreSQL and Docker. Also, I've been involved in the research of AI models and tools to improve the company development process.",
+    position: "Software Developer & AI Tools Developer",
     startDate: "March 2025",
     endDate: "Present",
     location: "Bogotá, Colombia",
-    technologies: [
-      "React",
-      "Tailwind CSS",
-      "TypeScript",
-      "Python",
-      "FastAPI",
-      "PostgreSQL",
-      "Docker",
-    ],
     responsibilities: [
-      "Develop web applications using React, Tailwind CSS, TypeScript, Python, FastAPI, PostgreSQL and Docker.",
-      "Research AI models and tools to improve the company development process.",
-    ],
-    achievements: [
-      "Developed a web application that integrates with an AI model to analyze and improve the performance of the model.",
-      "Developed a web application that integrates with an AI model to analyze and improve the performance of the model.",
+      "Built and deployed full-stack applications using FastAPI, React, TypeScript, Docker, and PostgreSQL.",
+      "Designed scalable backend architectures and production APIs.",
+      "Developed AI agents and intelligent workflows using LangGraph.",
+      "Implemented Model Context Protocol (MCP) servers and integrated AI tools with services like Microsoft Copilot.",
+      "Deployed and monitored applications in production environments.",
     ],
   },
   {
-    company: "SAM - Servicios Automáticos en Meteorología",
-    position: "Full Stack Developer and DevOps Engineer",
-    description:
-      "I designed and developed applications and infrastructure for a forecast system for meteorological services.",
+    company: "SAM | Automated Meteorological Services",
+    position: "Software Developer & Data Architect",
     startDate: "December 2024",
     endDate: "Present",
     location: "Bogotá, Colombia",
-    technologies: [
-      "React",
-      "Tailwind CSS",
-      "TypeScript",
-      "Python",
-      "Django",
-      "PostgreSQL",
-      "Docker",
-      "AWS Services",
-    ],
     responsibilities: [
-      "Designed and developed applications and infrastructure for a forecast system for meteorological services.",
-      "Developed a web application that integrates with an AI model to analyze and improve the performance of the model.",
+      "Architected and developed a data-driven climate forecasting platform for solar energy systems.",
+      "Built an internal web platform using React, featuring interactive dashboards and real-time metrics.",
+      "Designed data pipelines using Python, Pandas, and NumPy for forecasting and analytics.",
+      "Integrated Open-Meteo APIs for real-time and historical weather data.",
+      "Developed backend services with Django REST Framework and PostgreSQL, and deployed infrastructure on AWS (EC2, RDS, S3, Lambda).",
     ],
-    achievements: [
-      "Developed a web application that integrates with an AI model to analyze and improve the performance of the model.",
-      "Developed a web application that integrates with an AI model to analyze and improve the performance of the model.",
+  },
+  {
+    company: "Dataexco",
+    position: "Full Stack Developer",
+    startDate: "August 2023",
+    endDate: "December 2024",
+    location: "Duitama, Colombia",
+    responsibilities: [
+      "Led the migration of a legacy academic system to a modern web platform.",
+      "Developed backend services with Django and MySQL.",
+      "Built frontend interfaces using HTML, CSS, and JavaScript.",
+      "Delivered internal tools improving academic and administrative workflows.",
     ],
   },
 ];
