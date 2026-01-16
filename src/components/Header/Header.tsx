@@ -40,7 +40,10 @@ const Header = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (asideRef.current && !asideRef.current.contains(event.target as Node)) {
+      if (
+        asideRef.current &&
+        !asideRef.current.contains(event.target as Node)
+      ) {
         handleClose();
       }
     };
@@ -85,9 +88,7 @@ const Header = () => {
         <header className="fixed top-4 left-4 z-50">
           <button
             className={`p-2 rounded-lg transition-all duration-300 ${
-              isScrolled
-                ? "glass border border-border"
-                : "bg-transparent"
+              isScrolled ? "glass border border-border" : "bg-transparent"
             }`}
             onClick={() => setIsOpen(true)}
             aria-label="Open menu"
@@ -102,7 +103,7 @@ const Header = () => {
       <>
         {/* Backdrop */}
         <div className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm" />
-        
+
         {/* Mobile Menu */}
         <aside
           ref={asideRef}
@@ -142,7 +143,9 @@ const Header = () => {
 
           {/* Social Links */}
           <div className="p-4 border-t border-border">
-            <p className="text-xs text-text-muted uppercase tracking-wider mb-3">Connect</p>
+            <p className="text-xs text-text-muted uppercase tracking-wider mb-3">
+              Connect
+            </p>
             <div className="flex gap-3">
               <a
                 href="https://github.com/daniv3611"
@@ -172,9 +175,9 @@ const Header = () => {
   // Desktop Header
   return (
     <header
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 border border-border transition-all duration-300 ${
         isScrolled
-          ? "glass border border-border shadow-lg shadow-black/10"
+          ? "glass border-border shadow-lg shadow-black/10"
           : "bg-transparent"
       } rounded-full px-2`}
     >
@@ -193,7 +196,7 @@ const Header = () => {
             </li>
           ))}
         </ul>
-        
+
         {/* Social icons for desktop */}
         <div className="hidden md:flex items-center gap-1 ml-4 pl-4 border-l border-border">
           <a

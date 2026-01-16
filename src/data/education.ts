@@ -15,7 +15,7 @@ export const education: TEducation[] = [
     endDate: "Present",
     location: "Bogotá DC, Colombia",
     highlights: [
-      "Honors Program 'Rodrigo Noguera Laborde' -- First and Second Distinction.",
+      "Honors Program 'Rodrigo Noguera Laborde' - First and Second Distinction.",
     ],
   },
 ];
