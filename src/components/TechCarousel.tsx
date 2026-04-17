@@ -5,18 +5,19 @@ const technologies = [
   "TypeScript",
   "Python",
   "FastAPI",
+  "LangGraph",
   "PostgreSQL",
   "Docker",
   "AWS",
-  "Node.js",
+  "Next.js",
   "TailwindCSS",
   "Django",
-  "LangGraph",
-  "Google Cloud",
+  "RAG Systems",
+  "Firebase",
+  "Railway",
 ];
 
 const TechCarousel = () => {
-  // Duplicate the array to create seamless infinite scroll
   const duplicatedTechs = [...technologies, ...technologies];
 
   return (

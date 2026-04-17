@@ -6,26 +6,26 @@ type TSkillCategory = {
 export const skills: TSkillCategory[] = [
   {
     category: "Languages",
-    skills: ["Python", "TypeScript", "JavaScript", "SQL", "Java", "C#", "HTML/CSS"],
+    skills: ["Python", "TypeScript", "JavaScript", "SQL", "Java", "C#", "HTML/CSS", "Golang"],
   },
   {
     category: "Frontend",
-    skills: ["React", "TailwindCSS", "TanStack", "ShadCN"],
+    skills: ["React", "Next.js", "TailwindCSS", "TanStack", "ShadCN"],
   },
   {
     category: "Backend",
     skills: ["FastAPI", "Django", "Flask", ".NET", "Node.js"],
   },
   {
-    category: "Databases",
-    skills: ["PostgreSQL", "MySQL"],
+    category: "AI & Data",
+    skills: ["LangGraph", "RAG Systems", "MCP", "Chroma", "Ollama", "Pandas", "NumPy"],
   },
   {
     category: "Cloud & DevOps",
-    skills: ["Docker", "AWS", "Google Cloud Platform"],
+    skills: ["Docker", "AWS", "Railway", "Google Cloud Platform"],
   },
   {
-    category: "Data & AI",
-    skills: ["LangGraph", "Pandas", "NumPy", "Matplotlib"],
+    category: "Databases",
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "Firebase", "Oracle SQL"],
   },
 ];
