@@ -46,4 +46,15 @@ export const projects: TProject[] = [
       "Defined system architectures and led end-to-end development across multiple client projects.",
     ],
   },
+  {
+    title: "Software as Innovation",
+    role: "Research Group Member",
+    startDate: "February 2025",
+    endDate: "Present",
+    tech: [],
+    description: [
+      "Active member of a university research group focused on software-driven innovation.",
+      "Contributed to research-driven software projects from prototyping to implementation.",
+    ],
+  },
 ];
