@@ -1,0 +1,204 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[spanish]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Daniel Velasco} \\ \vspace{1pt}
+    \small +57 320-916-8731 $|$ \href{mailto:dvelascogz@gmail.com}{\underline{dvelascogz@gmail.com}} $|$ \href{https://daniel-velasco.vercel.app/}{\underline{daniel-velasco.vercel.app}}
+\end{center}
+
+%-----------PERFIL-------------
+\small Desarrollador de Sistemas de IA y Full-Stack con experiencia en producción construyendo pipelines RAG, agentes de IA y plataformas SaaS. Especializado en FastAPI, React, TypeScript y LangGraph. Entrega de sistemas completos---desde diseño de arquitectura hasta despliegue en la nube---en entornos de startups e investigación aplicada.
+
+%-----------EDUCACIÓN-----------
+\section{Educación}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Universidad Sergio Arboleda}{Bogotá D.C., Colombia}
+      {Ingeniería en Ciencias de la Computación e Inteligencia Artificial}{Feb. 2022 -- Actualidad}
+      \resumeItemListStart
+        \resumeItem{Programa de Honores ``Rodrigo Noguera Laborde'' -- Primera y Segunda Distinción.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCIA-----------
+\section{Experiencia}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Desarrollador de Software y Herramientas de IA}{Marzo 2025 -- Actualidad}
+      {Dantalabs}{Bogotá, Colombia}
+      \resumeItemListStart
+        \resumeItem{Desarrollé aplicaciones full-stack en producción usando FastAPI, React, TypeScript, Docker y PostgreSQL.}
+        \resumeItem{Construí agentes de IA y flujos de trabajo multi-paso con LangGraph; diseñé APIs backend escalables.}
+        \resumeItem{Implementé servidores MCP e integré herramientas de IA con Microsoft Copilot; desplegué y monitoreé servicios en producción.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Desarrollador de Software y Arquitecto de Datos}{Diciembre 2024 -- Diciembre 2025}
+      {SAM | Servicios Meteorológicos Automatizados}{Bogotá, Colombia}
+      \resumeItemListStart
+        \resumeItem{Arquitecté una plataforma de pronóstico climático para sistemas de energía solar usando Python, Pandas y APIs de Open-Meteo.}
+        \resumeItem{Construí dashboards en React con métricas en tiempo real; desplegué backend Django REST en AWS (EC2, RDS, S3, Lambda).}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Desarrollador Full Stack}{Agosto 2023 -- Diciembre 2024}
+      {Dataexco}{Duitama, Colombia}
+      \resumeItemListStart
+        \resumeItem{Lideré la migración de un sistema académico legado a una plataforma web moderna con Django y MySQL.}
+        \resumeItem{Entregué interfaces frontend y herramientas internas que mejoraron los flujos académicos y administrativos.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROYECTOS-----------
+\section{Proyectos}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{OrbitEngine} $|$ \emph{FastAPI, React, TypeScript, PostgreSQL, Railway} $|$ \href{https://orbitengine.lat}{\underline{orbitengine.lat}}}{Nov. 2025 -- Abr. 2026}
+          \resumeItemListStart
+            \resumeItem{Desarrollé y desplegué una plataforma SaaS multi-tenant que centraliza inventario, clientes y ventas para PyMES.}
+            \resumeItem{Implementé alertas de bajo inventario en tiempo real y dashboards de métricas diarias de ventas; lideré el ciclo completo de desarrollo desde el diseño hasta el mantenimiento en producción.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Agente de Jurisprudencia Costera} $|$ \emph{RAG, LangGraph, FastAPI, Next.js, Chroma, Ollama, Firebase}}{Mar. 2026 -- Actualidad}
+          \resumeItemListStart
+            \resumeItem{Desarrollé un sistema RAG en producción para jurisprudencia costera colombiana, utilizado por abogados para investigación jurídica asistida por IA.}
+            \resumeItem{Construí pipeline de ingesta de PDFs con Docling, base de datos vectorial Chroma y embeddings con Ollama; integré Firebase para autenticación y persistencia de chats.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Cofundador y CTO} $|$ \emph{Tech Craft Solutions}}{Junio 2025 -- Actualidad}
+          \resumeItemListStart
+            \resumeItem{Cofundé una empresa de software que entrega soluciones personalizadas de IA y full-stack; definí arquitecturas y lideré el desarrollo de principio a fin.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+
+%
+%-----------HABILIDADES TÉCNICAS-----------
+\section{Habilidades Técnicas}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Lenguajes}{: Python, TypeScript, JavaScript, SQL, Java, C\#, HTML/CSS, Golang} \\
+     \textbf{Frontend}{: React, Next.js, TailwindCSS, TanStack, ShadCN} \\
+     \textbf{Backend}{: FastAPI, Django, Flask, .NET, Node.js} \\
+     \textbf{IA y Datos}{: LangGraph, Sistemas RAG, MCP, Chroma, Ollama, Pandas, NumPy} \\
+     \textbf{Nube y DevOps}{: Docker, AWS (EC2/RDS/S3/Lambda), Railway, Google Cloud Platform} \\
+     \textbf{Bases de Datos}{: PostgreSQL, MySQL, MongoDB, Firebase, Oracle SQL}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}

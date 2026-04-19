@@ -27,9 +27,17 @@ export const projects: TProject[] = [
   {
     title: "Coastal Jurisprudence AI Agent",
     role: "AI Systems Developer",
-    startDate: "Mar. 2025",
+    startDate: "Mar. 2026",
     endDate: "Present",
-    tech: ["RAG", "LangGraph", "FastAPI", "Next.js", "Chroma", "Ollama", "Firebase"],
+    tech: [
+      "RAG",
+      "LangGraph",
+      "FastAPI",
+      "Next.js",
+      "Chroma",
+      "Ollama",
+      "Firebase",
+    ],
     description: [
       "Production RAG system for Colombian coastal jurisprudence, used by lawyers for AI-assisted case research.",
       "Built PDF ingestion pipeline with Docling and Chroma vector DB; orchestrated with LangGraph and Ollama embeddings.",
