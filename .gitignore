@@ -26,3 +26,7 @@ pnpm-debug.log*
 # Skills
 skills-lock.json
 skills/
+# Local Pi runtime state
+.atl/
+.pi/
+.pi-lens/
