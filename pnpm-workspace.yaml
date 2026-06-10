@@ -1,0 +1,15 @@
+packages:
+  - .
+
+minimumReleaseAge: 1440
+blockExoticSubdeps: true
+strictDepBuilds: true
+verifyDepsBeforeRun: error
+packageManagerStrict: true
+packageManagerStrictVersion: true
+managePackageManagerVersions: true
+preferFrozenLockfile: true
+verifyStoreIntegrity: true
+strictStorePkgContentCheck: true
+sideEffectsCache: false
+allowBuilds: {}
