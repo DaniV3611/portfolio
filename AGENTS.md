@@ -12,22 +12,24 @@ Personal portfolio website built with **Astro 5.x**, **React 19**, **TypeScript*
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start development server at localhost:4321 |
-| `npm run build` | Build production site to `./dist/` |
-| `npm run preview` | Preview production build locally |
-| `npm run astro` | Run Astro CLI commands directly |
+| `pnpm dev` | Start development server at localhost:4321 |
+| `pnpm build` | Build production site to `./dist/` |
+| `pnpm preview` | Preview production build locally |
+| `pnpm astro` | Run Astro CLI commands directly |
+
+> This project is **pnpm-only**. A `preinstall` hook (`scripts/ensure-pnpm.mjs`) hard-rejects installs attempted with npm/yarn/bun. Do not suggest or run `npm install`.
 
 ### Build Process
 
 ```bash
 # Development
-npm run dev
+pnpm dev
 
 # Production build
-npm run build
+pnpm build
 
 # Type checking (via Astro)
-npx astro check
+pnpm exec astro check
 ```
 
 ### Testing
@@ -219,7 +221,14 @@ const value = data?.property ?? "default";
 ## Environment
 
 - **Node.js**: Check `.nvmrc` or use LTS version
-- **Package Manager**: npm (package-lock.json present)
+- **Package Manager**: pnpm only (version pinned via `packageManager` in `package.json`). `pnpm-lock.yaml` is the source of truth; `package-lock.json` must not be reintroduced.
+- **Supply-chain hardening** (configured in `pnpm-workspace.yaml`):
+  - `minimumReleaseAge: 1440` — newly published versions must be at least 24h old before they can be installed
+  - `strictDepBuilds: true` — install scripts are blocked unless the package is listed in `allowBuilds` (currently `@tailwindcss/oxide`, `esbuild`, `sharp`)
+  - `blockExoticSubdeps: true`, `verifyStoreIntegrity: true`, `strictStorePkgContentCheck: true` — reject tarball URLs, git deps, and tampered store contents
+  - `verifyDepsBeforeRun: error`, `preferFrozenLockfile: true` — every `pnpm` run validates the lockfile matches `package.json`
+  - `packageManagerStrict: true` + `packageManagerStrictVersion: true` — enforce the exact pnpm version declared in `package.json`
+- When adding a dependency that needs a postinstall/build script, append it to `allowBuilds` in `pnpm-workspace.yaml` — otherwise the install will fail with `ERR_PNPM_IGNORED_BUILDS`.
 - **ES Modules**: Project uses `"type": "module"`
 
 ## Common Tasks
