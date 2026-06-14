@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @plugin "@midudev/tailwind-animations";
 
+/* Dark mode driven by a class on <html> (set by the no-FOUC head script) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: "Plus Jakarta Sans";
   src: url("/fonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
@@ -19,37 +22,193 @@
 
 @theme {
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
-  /* Modern Dark Theme Color Palette */
-  --color-background: #0a0a0b;
-  --color-surface: #121214;
-  --color-surface-elevated: #1a1a1d;
-  --color-border: #27272a;
-  --color-border-hover: #3f3f46;
-  
-  /* Text Colors */
-  --color-text-primary: #fafafa;
-  --color-text-secondary: #a1a1aa;
-  --color-text-muted: #71717a;
-  
-  /* Accent Colors - Clean Blue */
-  --color-accent: #3b82f6;
-  --color-accent-hover: #60a5fa;
-  --color-accent-muted: #2563eb;
-  
-  /* Secondary Accent - Warm Amber/Orange */
-  --color-secondary: #f59e0b;
-  --color-secondary-hover: #fbbf24;
-  
-  /* Success/Highlight - Emerald */
-  --color-success: #10b981;
-  
-  /* Gradient stops - Blue to Cyan */
-  --color-gradient-start: #3b82f6;
-  --color-gradient-mid: #0ea5e9;
-  --color-gradient-end: #06b6d4;
+  --font-display: "Bricolage Grotesque", "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
-/* Custom utility classes */
+/*
+  Tokens map to runtime CSS variables (defined per theme below).
+  `inline` keeps the utilities referencing the variables so they
+  re-resolve live when the theme class changes — including the
+  `bg-accent/10` style alpha modifiers via color-mix.
+*/
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-muted: var(--accent-muted);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+
+  --color-success: var(--success);
+
+  --color-gradient-start: var(--gradient-start);
+  --color-gradient-mid: var(--gradient-mid);
+  --color-gradient-end: var(--gradient-end);
+}
+
+/* ----------------------------------------------------------------------- */
+/* Theme palettes                                                          */
+/* :root = light defaults · system dark via media query · class overrides  */
+/* ----------------------------------------------------------------------- */
+
+:root {
+  color-scheme: light;
+
+  /* Warm "paper" light theme */
+  --background: #f6f5f3;
+  --surface: #ffffff;
+  --surface-elevated: #f0efec;
+  --border: #e6e4df;
+  --border-hover: #d4d1ca;
+
+  --text-primary: #1c1b19;
+  --text-secondary: #57534e;
+  --text-muted: #8a857d;
+
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-muted: #1e40af;
+
+  --secondary: #d97706;
+  --secondary-hover: #b45309;
+
+  --success: #059669;
+
+  --gradient-start: #2563eb;
+  --gradient-mid: #0891b2;
+  --gradient-end: #0e7490;
+
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-light-bg: rgba(255, 255, 255, 0.55);
+  --glass-card-bg: rgba(255, 255, 255, 0.7);
+  --glass-card-bg-hover: rgba(255, 255, 255, 0.92);
+  --glass-border: rgba(28, 27, 25, 0.07);
+  --glass-card-border-hover: rgba(37, 99, 235, 0.3);
+
+  --grid-line: rgba(37, 99, 235, 0.05);
+  --glow-accent: rgba(37, 99, 235, 0.18);
+  --glow-accent-strong: rgba(37, 99, 235, 0.3);
+  --selection-bg: rgba(37, 99, 235, 0.16);
+  --scrollbar-thumb: #d4d1ca;
+  --scrollbar-thumb-hover: #b8b4ab;
+}
+
+/* Modern dark theme */
+.dark {
+  color-scheme: dark;
+
+  --background: #0a0a0b;
+  --surface: #121214;
+  --surface-elevated: #1a1a1d;
+  --border: #27272a;
+  --border-hover: #3f3f46;
+
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --accent-muted: #2563eb;
+
+  --secondary: #f59e0b;
+  --secondary-hover: #fbbf24;
+
+  --success: #10b981;
+
+  --gradient-start: #3b82f6;
+  --gradient-mid: #0ea5e9;
+  --gradient-end: #06b6d4;
+
+  --glass-bg: rgba(18, 18, 20, 0.8);
+  --glass-light-bg: rgba(26, 26, 29, 0.6);
+  --glass-card-bg: rgba(18, 18, 20, 0.6);
+  --glass-card-bg-hover: rgba(26, 26, 29, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-card-border-hover: rgba(59, 130, 246, 0.25);
+
+  --grid-line: rgba(59, 130, 246, 0.035);
+  --glow-accent: rgba(59, 130, 246, 0.3);
+  --glow-accent-strong: rgba(59, 130, 246, 0.5);
+  --selection-bg: rgba(59, 130, 246, 0.3);
+  --scrollbar-thumb: #27272a;
+  --scrollbar-thumb-hover: #3f3f46;
+}
+
+/* System preference when no explicit class is present (no-JS friendly) */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+
+    --background: #0a0a0b;
+    --surface: #121214;
+    --surface-elevated: #1a1a1d;
+    --border: #27272a;
+    --border-hover: #3f3f46;
+
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --accent-muted: #2563eb;
+
+    --secondary: #f59e0b;
+    --secondary-hover: #fbbf24;
+
+    --success: #10b981;
+
+    --gradient-start: #3b82f6;
+    --gradient-mid: #0ea5e9;
+    --gradient-end: #06b6d4;
+
+    --glass-bg: rgba(18, 18, 20, 0.8);
+    --glass-light-bg: rgba(26, 26, 29, 0.6);
+    --glass-card-bg: rgba(18, 18, 20, 0.6);
+    --glass-card-bg-hover: rgba(26, 26, 29, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --glass-card-border-hover: rgba(59, 130, 246, 0.25);
+
+    --grid-line: rgba(59, 130, 246, 0.035);
+    --glow-accent: rgba(59, 130, 246, 0.3);
+    --glow-accent-strong: rgba(59, 130, 246, 0.5);
+    --selection-bg: rgba(59, 130, 246, 0.3);
+    --scrollbar-thumb: #27272a;
+    --scrollbar-thumb-hover: #3f3f46;
+  }
+}
+
+/* ----------------------------------------------------------------------- */
+/* Base                                                                    */
+/* ----------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  background-color: var(--background);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ----------------------------------------------------------------------- */
+/* Utility classes                                                         */
+/* ----------------------------------------------------------------------- */
+
 .animate-delay-100 { animation-delay: 100ms; }
 .animate-delay-200 { animation-delay: 200ms; }
 .animate-delay-300 { animation-delay: 300ms; }
@@ -72,46 +231,45 @@
   background-clip: text;
 }
 
-/* Glass effect */
+/* Glass effects */
 .glass {
-  background: rgba(18, 18, 20, 0.8);
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 .glass-light {
-  background: rgba(26, 26, 29, 0.6);
+  background: var(--glass-light-bg);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
-/* Glass card effect for cards */
 .glass-card {
-  background: rgba(18, 18, 20, 0.6);
+  background: var(--glass-card-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
 }
 
 .glass-card:hover {
-  background: rgba(26, 26, 29, 0.7);
-  border-color: rgba(59, 130, 246, 0.2);
+  background: var(--glass-card-bg-hover);
+  border-color: var(--glass-card-border-hover);
 }
 
 /* Glow effects */
 .glow-accent {
-  box-shadow: 0 0 40px -10px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 40px -10px var(--glow-accent);
 }
 
 .glow-accent-hover:hover {
-  box-shadow: 0 0 50px -10px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 50px -10px var(--glow-accent-strong);
 }
 
 /* Subtle grid background */
 .bg-grid {
-  background-image: 
-    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -129,22 +287,17 @@
   border-radius: 1rem;
   padding: 1px;
   background: linear-gradient(135deg, var(--color-gradient-start), transparent, var(--color-gradient-end));
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Selection color */
 ::selection {
-  background: rgba(59, 130, 246, 0.3);
+  background: var(--selection-bg);
   color: var(--color-text-primary);
 }
 
@@ -154,14 +307,56 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-background);
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-border-hover);
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* ----------------------------------------------------------------------- */
+/* Scroll reveal (Motion-driven)                                           */
+/* The `reveal-ready` class is added by the head script only when motion   */
+/* is allowed, so content stays visible if JS is off or motion is reduced. */
+/* ----------------------------------------------------------------------- */
+
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* Once Motion has revealed an element, keep it visible regardless of whether
+   the WAAPI animation commits its final styles. */
+.reveal-ready [data-reveal][data-revealed] {
+  opacity: 1;
+}
+
+/* ----------------------------------------------------------------------- */
+/* Theme transition — circular reveal via the View Transitions API         */
+/* ----------------------------------------------------------------------- */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 0;
+}
+
+::view-transition-new(root) {
+  z-index: 1;
+}
+
+/* Tech logo glyphs: monochrome icons inherit text color; brand logos keep
+   their own colors. Keeps them crisp and theme-aware. */
+.tech-glyph {
+  display: inline-block;
+  flex-shrink: 0;
 }

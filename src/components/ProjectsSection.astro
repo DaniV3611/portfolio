@@ -56,19 +56,19 @@ const cardStyles: CardStyle[] = [
 
 <section id="projects" class="w-full py-20">
     <!-- Section Header -->
-    <div class="flex items-center gap-4 mb-12">
+    <div class="flex items-center gap-4 mb-12" data-reveal>
         <div class="p-3 rounded-xl bg-gradient-to-br from-accent/10 to-secondary/10 border border-accent/20">
             <Rocket class="w-6 h-6 text-accent" />
         </div>
         <div>
-            <h2 class="text-3xl font-bold text-text-primary">Projects & Ventures</h2>
+            <h2 class="font-display text-3xl font-bold text-text-primary">Projects & Ventures</h2>
             <p class="text-text-secondary mt-1">Things I've built and led</p>
         </div>
     </div>
 
     <!-- Featured Project -->
     {featured.map((project) => (
-        <div class="group relative p-6 md:p-8 rounded-2xl glass-card overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 mb-6">
+        <div class="group relative p-6 md:p-8 rounded-2xl glass-card overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 mb-6" data-reveal>
             <!-- Top accent line -->
             <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"></div>
             <!-- Hover gradient fill -->
@@ -153,7 +153,7 @@ const cardStyles: CardStyle[] = [
             const style = cardStyles[index % cardStyles.length];
             const IconComponent = style.icon;
             return (
-                <div class={`group relative p-6 rounded-2xl glass-card transition-all duration-300 hover:shadow-xl ${style.shadow} overflow-hidden`}>
+                <div class={`group relative p-6 rounded-2xl glass-card transition-all duration-300 hover:shadow-xl ${style.shadow} overflow-hidden`} data-reveal data-reveal-delay={(index % 2) * 0.08}>
                     <div class={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent ${style.line} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                     <div class={`absolute inset-0 bg-gradient-to-br ${style.glow} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}></div>
 

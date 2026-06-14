@@ -1,6 +1,6 @@
 ---
 import { ArrowDown, Mail } from "@lucide/astro";
-import TechCarousel from "./TechCarousel.tsx";
+import TechCarousel from "./TechCarousel.astro";
 ---
 
 <section id="home" class="flex flex-col justify-center w-full min-h-dvh py-20">
@@ -12,7 +12,7 @@ import TechCarousel from "./TechCarousel.tsx";
             Hello, I'm
         </p>
         <h1
-            class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight animate-fade-in-right animate-delay-200"
+            class="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight animate-fade-in-right animate-delay-200"
         >
             <span class="gradient-text">Daniel Velasco</span>
         </h1>
@@ -59,6 +59,6 @@ import TechCarousel from "./TechCarousel.tsx";
         <p class="text-text-muted text-sm mb-4 uppercase tracking-wider">
             Tech I work with
         </p>
-        <TechCarousel client:load />
+        <TechCarousel />
     </div>
 </section>

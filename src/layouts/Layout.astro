@@ -8,15 +8,34 @@ import CursorGlow from "../components/CursorGlow.tsx";
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		{/* Set the theme + motion class before first paint to avoid any flash */}
+		<script is:inline>
+			(function () {
+				try {
+					var stored = localStorage.getItem("theme") || "system";
+					var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+					var dark = stored === "dark" || (stored === "system" && systemDark);
+					var root = document.documentElement;
+					root.classList.add(dark ? "dark" : "light");
+					if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+						root.classList.add("reveal-ready");
+					}
+				} catch (e) {
+					document.documentElement.classList.add("dark");
+				}
+			})();
+		</script>
 		<link rel="icon" type="image/png" href="/code.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Daniel Velasco | Software Developer & AI Engineer</title>
 		<meta name="description" content="Software Developer and AI Engineer specializing in full-stack development, AI systems, and cloud architecture." />
+		<meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#f6f5f3" media="(prefers-color-scheme: light)" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
 	</head>
-	<body class="bg-background text-text-primary font-['Inter',sans-serif] antialiased">
+	<body class="bg-background text-text-primary font-sans antialiased">
 		<!-- Cursor glow effect -->
 		<CursorGlow client:load />
 		
@@ -39,6 +58,34 @@ import CursorGlow from "../components/CursorGlow.tsx";
 				</p>
 			</footer>
 		</div>
+
+		<!-- Scroll-reveal animations (Motion) -->
+		<script>
+			import { animate, inView } from "motion";
+
+			const reduceMotion = window.matchMedia(
+				"(prefers-reduced-motion: reduce)",
+			).matches;
+
+			if (!reduceMotion) {
+				inView(
+					"[data-reveal]",
+					(info: any) => {
+						const el: HTMLElement = info && info.target ? info.target : info;
+						if (!el || el.dataset.revealed) return;
+
+						const delay = Number(el.getAttribute("data-reveal-delay") || 0);
+						animate(
+							el,
+							{ opacity: [0, 1], transform: ["translateY(28px)", "translateY(0px)"] },
+							{ duration: 0.7, delay, ease: [0.22, 0.61, 0.36, 1] },
+						);
+						el.dataset.revealed = "true";
+					},
+					{ amount: 0.15 },
+				);
+			}
+		</script>
 	</body>
 </html>
 

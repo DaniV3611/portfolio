@@ -1,5 +1,7 @@
 ---
 import { skills } from "../data/skills";
+import { getTechIcon } from "../data/techIcons";
+import { Icon } from "astro-icon/components";
 import { Wrench, Code, Server, Database, Cloud, Brain, Monitor } from "@lucide/astro";
 
 const aiData    = skills.find(s => s.category === "AI & Data")!;
@@ -12,12 +14,12 @@ const databases = skills.find(s => s.category === "Databases")!;
 
 <section id="skills" class="w-full py-20">
     <!-- Section Header -->
-    <div class="flex items-center gap-4 mb-12">
+    <div class="flex items-center gap-4 mb-12" data-reveal>
         <div class="p-3 rounded-xl bg-accent/10 border border-accent/20">
             <Wrench class="w-6 h-6 text-accent" />
         </div>
         <div>
-            <h2 class="text-3xl font-bold text-text-primary">Technical Skills</h2>
+            <h2 class="font-display text-3xl font-bold text-text-primary">Technical Skills</h2>
             <p class="text-text-secondary mt-1">Technologies I work with</p>
         </div>
     </div>
@@ -28,7 +30,7 @@ const databases = skills.find(s => s.category === "Databases")!;
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
             <!-- AI & Data — gradient border, featured -->
-            <div class="md:col-span-2 p-[1px] rounded-2xl bg-gradient-to-br from-accent/50 via-accent/15 to-secondary/30">
+            <div class="md:col-span-2 p-[1px] rounded-2xl bg-gradient-to-br from-accent/50 via-accent/15 to-secondary/30" data-reveal>
                 <div class="relative p-6 rounded-2xl bg-surface-elevated bg-grid overflow-hidden h-full">
                     <!-- Ambient glow blob -->
                     <div class="absolute -top-10 -right-10 w-52 h-52 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -45,7 +47,8 @@ const databases = skills.find(s => s.category === "Databases")!;
                         </div>
                         <div class="flex flex-wrap gap-2">
                             {aiData.skills.map((skill: string) => (
-                                <span class="px-3 py-1.5 text-sm bg-accent/10 border border-accent/20 rounded-lg text-accent/90 hover:bg-accent/20 hover:border-accent/50 hover:text-accent transition-all duration-200 cursor-default font-medium">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm bg-accent/10 border border-accent/20 rounded-lg text-accent/90 hover:bg-accent/20 hover:border-accent/50 hover:text-accent transition-all duration-200 cursor-default font-medium">
+                                    <Icon name={getTechIcon(skill)} class="tech-glyph h-4 w-4" />
                                     {skill}
                                 </span>
                             ))}
@@ -55,7 +58,7 @@ const databases = skills.find(s => s.category === "Databases")!;
             </div>
 
             <!-- Languages — monospace aesthetic -->
-            <div class="group p-5 rounded-2xl glass-card hover:shadow-lg hover:shadow-accent/5 transition-all duration-300">
+            <div class="group p-5 rounded-2xl glass-card hover:shadow-lg hover:shadow-accent/5 transition-all duration-300" data-reveal data-reveal-delay="0.08">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="p-2 rounded-lg bg-accent/10 border border-accent/20">
                         <Code class="w-4 h-4 text-accent" />
@@ -64,7 +67,8 @@ const databases = skills.find(s => s.category === "Databases")!;
                 </div>
                 <div class="flex flex-wrap gap-2">
                     {languages.skills.map((skill: string) => (
-                        <span class="px-2.5 py-1 text-xs font-mono bg-surface-elevated border border-border rounded-lg text-text-secondary hover:text-accent hover:border-accent/50 hover:bg-accent/5 transition-all duration-200 cursor-default">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono bg-surface-elevated border border-border rounded-lg text-text-secondary hover:text-accent hover:border-accent/50 hover:bg-accent/5 transition-all duration-200 cursor-default">
+                            <Icon name={getTechIcon(skill)} class="tech-glyph h-3.5 w-3.5" />
                             {skill}
                         </span>
                     ))}
@@ -76,7 +80,7 @@ const databases = skills.find(s => s.category === "Databases")!;
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
             <!-- Frontend — secondary/amber -->
-            <div class="group p-5 rounded-2xl glass-card hover:shadow-lg hover:shadow-secondary/5 transition-all duration-300">
+            <div class="group p-5 rounded-2xl glass-card hover:shadow-lg hover:shadow-secondary/5 transition-all duration-300" data-reveal>
                 <div class="flex items-center gap-3 mb-4">
                     <div class="p-2 rounded-lg bg-secondary/10 border border-secondary/20">
                         <Monitor class="w-4 h-4 text-secondary" />
@@ -85,7 +89,8 @@ const databases = skills.find(s => s.category === "Databases")!;
                 </div>
                 <div class="flex flex-wrap gap-2">
                     {frontend.skills.map((skill: string) => (
-                        <span class="px-2.5 py-1.5 text-sm bg-surface-elevated border border-border rounded-lg text-text-secondary hover:text-secondary hover:border-secondary/50 hover:bg-secondary/5 transition-all duration-200 cursor-default">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-sm bg-surface-elevated border border-border rounded-lg text-text-secondary hover:text-secondary hover:border-secondary/50 hover:bg-secondary/5 transition-all duration-200 cursor-default">
+                            <Icon name={getTechIcon(skill)} class="tech-glyph h-4 w-4" />
                             {skill}
                         </span>
                     ))}
@@ -93,7 +98,7 @@ const databases = skills.find(s => s.category === "Databases")!;
             </div>
 
             <!-- Backend — success/green -->
-            <div class="group p-5 rounded-2xl glass-card hover:shadow-lg hover:shadow-success/5 transition-all duration-300">
+            <div class="group p-5 rounded-2xl glass-card hover:shadow-lg hover:shadow-success/5 transition-all duration-300" data-reveal data-reveal-delay="0.08">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="p-2 rounded-lg bg-success/10 border border-success/20">
                         <Server class="w-4 h-4 text-success" />
@@ -102,7 +107,8 @@ const databases = skills.find(s => s.category === "Databases")!;
                 </div>
                 <div class="flex flex-wrap gap-2">
                     {backend.skills.map((skill: string) => (
-                        <span class="px-2.5 py-1.5 text-sm bg-surface-elevated border border-border rounded-lg text-text-secondary hover:text-success hover:border-success/50 hover:bg-success/5 transition-all duration-200 cursor-default">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-sm bg-surface-elevated border border-border rounded-lg text-text-secondary hover:text-success hover:border-success/50 hover:bg-success/5 transition-all duration-200 cursor-default">
+                            <Icon name={getTechIcon(skill)} class="tech-glyph h-4 w-4" />
                             {skill}
                         </span>
                     ))}
@@ -110,7 +116,7 @@ const databases = skills.find(s => s.category === "Databases")!;
             </div>
 
             <!-- Cloud & DevOps — accent/blue -->
-            <div class="group p-5 rounded-2xl glass-card hover:shadow-lg hover:shadow-accent/5 transition-all duration-300">
+            <div class="group p-5 rounded-2xl glass-card hover:shadow-lg hover:shadow-accent/5 transition-all duration-300" data-reveal data-reveal-delay="0.16">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="p-2 rounded-lg bg-accent/10 border border-accent/20">
                         <Cloud class="w-4 h-4 text-accent" />
@@ -119,7 +125,8 @@ const databases = skills.find(s => s.category === "Databases")!;
                 </div>
                 <div class="flex flex-wrap gap-2">
                     {cloud.skills.map((skill: string) => (
-                        <span class="px-2.5 py-1.5 text-sm bg-surface-elevated border border-border rounded-lg text-text-secondary hover:text-accent hover:border-accent/50 hover:bg-accent/5 transition-all duration-200 cursor-default">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-sm bg-surface-elevated border border-border rounded-lg text-text-secondary hover:text-accent hover:border-accent/50 hover:bg-accent/5 transition-all duration-200 cursor-default">
+                            <Icon name={getTechIcon(skill)} class="tech-glyph h-4 w-4" />
                             {skill}
                         </span>
                     ))}
@@ -128,7 +135,7 @@ const databases = skills.find(s => s.category === "Databases")!;
         </div>
 
         <!-- Row 3: Databases — full width horizontal band -->
-        <div class="p-5 rounded-2xl glass-card hover:shadow-lg hover:shadow-violet-500/5 transition-all duration-300 group">
+        <div class="p-5 rounded-2xl glass-card hover:shadow-lg hover:shadow-violet-500/5 transition-all duration-300 group" data-reveal>
             <div class="flex flex-wrap items-center gap-x-6 gap-y-4">
                 <div class="flex items-center gap-3 flex-shrink-0">
                     <div class="p-2 rounded-lg bg-violet-500/10 border border-violet-500/20">
@@ -139,7 +146,8 @@ const databases = skills.find(s => s.category === "Databases")!;
                 <div class="hidden md:block w-px h-5 bg-border flex-shrink-0"></div>
                 <div class="flex flex-wrap gap-2 flex-1">
                     {databases.skills.map((skill: string) => (
-                        <span class="px-2.5 py-1.5 text-sm bg-surface-elevated border border-border rounded-lg text-text-secondary hover:text-violet-400 hover:border-violet-500/50 hover:bg-violet-500/5 transition-all duration-200 cursor-default">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-sm bg-surface-elevated border border-border rounded-lg text-text-secondary hover:text-violet-400 hover:border-violet-500/50 hover:bg-violet-500/5 transition-all duration-200 cursor-default">
+                            <Icon name={getTechIcon(skill)} class="tech-glyph h-4 w-4" />
                             {skill}
                         </span>
                     ))}

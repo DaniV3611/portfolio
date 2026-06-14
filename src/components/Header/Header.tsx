@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import useMobile from "../../hooks/useMobile";
+import ThemeToggle from "../ThemeToggle";
 import "./Header.css";
 
 const navItems = [
@@ -85,17 +86,26 @@ const Header = () => {
   if (isMobile) {
     if (!isOpen) {
       return (
-        <header className="fixed top-4 left-4 z-50">
-          <button
-            className={`p-2 rounded-lg transition-all duration-300 ${
+        <>
+          <header className="fixed top-4 left-4 z-50">
+            <button
+              className={`p-2 rounded-lg transition-all duration-300 ${
+                isScrolled ? "glass border border-border" : "bg-transparent"
+              }`}
+              onClick={() => setIsOpen(true)}
+              aria-label="Open menu"
+            >
+              <Menu className="w-6 h-6 text-text-primary" />
+            </button>
+          </header>
+          <div
+            className={`fixed top-4 right-4 z-50 rounded-full transition-all duration-300 ${
               isScrolled ? "glass border border-border" : "bg-transparent"
             }`}
-            onClick={() => setIsOpen(true)}
-            aria-label="Open menu"
           >
-            <Menu className="w-6 h-6 text-text-primary" />
-          </button>
-        </header>
+            <ThemeToggle align="right" />
+          </div>
+        </>
       );
     }
 
@@ -140,6 +150,17 @@ const Header = () => {
               ))}
             </ul>
           </nav>
+
+          {/* Theme control */}
+          <div className="p-4 border-t border-border">
+            <p className="text-xs text-text-muted uppercase tracking-wider mb-2">
+              Theme
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-text-secondary">Appearance</span>
+              <ThemeToggle align="right" />
+            </div>
+          </div>
 
           {/* Social Links */}
           <div className="p-4 border-t border-border">
@@ -217,6 +238,11 @@ const Header = () => {
           >
             <Linkedin className="w-4 h-4" />
           </a>
+        </div>
+
+        {/* Theme toggle */}
+        <div className="flex items-center ml-2 pl-2 border-l border-border">
+          <ThemeToggle align="right" />
         </div>
       </nav>
     </header>

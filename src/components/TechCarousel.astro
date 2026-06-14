@@ -1,0 +1,40 @@
+---
+import { Icon } from "astro-icon/components";
+import { getTechIcon } from "../data/techIcons";
+import "./TechCarousel.css";
+
+const technologies = [
+  "React",
+  "TypeScript",
+  "Python",
+  "FastAPI",
+  "LangGraph",
+  "PostgreSQL",
+  "Docker",
+  "AWS",
+  "Next.js",
+  "TailwindCSS",
+  "Django",
+  "RAG Systems",
+  "Firebase",
+  "Railway",
+];
+
+const duplicatedTechs = [...technologies, ...technologies];
+---
+
+<div class="carousel-container">
+  <div class="carousel-track">
+    {
+      duplicatedTechs.map((tech, index) => (
+        <span
+          class="carousel-item inline-flex items-center gap-2 px-4 py-2 text-sm bg-surface border border-border rounded-lg text-text-secondary hover:text-text-primary hover:border-accent/50 transition-all duration-300 whitespace-nowrap"
+          aria-hidden={index >= technologies.length ? "true" : undefined}
+        >
+          <Icon name={getTechIcon(tech)} class="tech-glyph h-4 w-4" />
+          {tech}
+        </span>
+      ))
+    }
+  </div>
+</div>
