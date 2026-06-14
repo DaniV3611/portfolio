@@ -1,0 +1,136 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { Brain, Layers, Cloud, MapPin, Languages } from "@lucide/astro";
+
+const pillars = [
+  {
+    icon: Brain,
+    title: "AI Systems",
+    accent: "accent",
+    points: [
+      "Production RAG pipelines & vector search",
+      "Autonomous agents and multi-step workflows with LangGraph",
+      "MCP servers and LLM tool integrations",
+    ],
+  },
+  {
+    icon: Layers,
+    title: "Full-Stack Product",
+    accent: "secondary",
+    points: [
+      "FastAPI, Django & Node.js back ends",
+      "React, Next.js & TypeScript front ends",
+      "Multi-tenant SaaS, clean APIs & dashboards",
+    ],
+  },
+  {
+    icon: Cloud,
+    title: "Cloud & Delivery",
+    accent: "success",
+    points: [
+      "Docker, AWS (EC2/RDS/S3/Lambda) & GCP",
+      "CI/CD, deployment & production monitoring",
+      "End-to-end ownership, design to maintenance",
+    ],
+  },
+];
+---
+
+<section id="about" class="w-full py-20 md:py-28">
+  <SectionHeading
+    index="01"
+    label="About"
+    title="Full stack, full lifecycle."
+    subtitle="I design and ship software end to end, from the first architecture sketch to the production deployment people actually rely on."
+  />
+
+  <!-- Narrative -->
+  <div class="max-w-3xl space-y-5" data-reveal>
+    <p class="text-lg text-text-secondary leading-relaxed">
+      I'm Daniel, an <span class="text-text-primary font-medium"
+        >AI Systems &amp; Full-Stack Developer</span
+      > based in Bogotá, Colombia. Over the last
+      <span class="text-text-primary font-medium">3+ years</span> I've built RAG
+      pipelines, autonomous agents and SaaS platforms across startups and
+      applied-research teams.
+    </p>
+    <p class="text-lg text-text-secondary leading-relaxed">
+      I co-founded a software company as <span class="text-text-primary font-medium"
+        >CTO</span
+      >, and I'm studying Computer Science &amp; AI Engineering on an honors
+      track. I care about systems that are pragmatic, well-architected, and
+      actually shipped.
+    </p>
+    <div class="flex flex-wrap gap-2 pt-2">
+      <span
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg bg-surface-elevated border border-border text-text-secondary"
+      >
+        <MapPin class="w-4 h-4 text-accent" /> Bogotá, Colombia
+      </span>
+      <span
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg bg-surface-elevated border border-border text-text-secondary"
+      >
+        <Languages class="w-4 h-4 text-accent" /> English · Spanish
+      </span>
+    </div>
+  </div>
+
+  <!-- Pillars -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-12">
+    {
+      pillars.map((pillar, index) => {
+        const PillarIcon = pillar.icon;
+        return (
+          <div
+            class="group p-6 md:p-7 rounded-2xl glass-card card-lift h-full"
+            data-reveal
+            data-reveal-delay={index * 0.1}
+          >
+            <div
+              class:list={[
+                "inline-flex p-3 rounded-xl border mb-5",
+                {
+                  "bg-accent/10 border-accent/20": pillar.accent === "accent",
+                  "bg-secondary/10 border-secondary/20":
+                    pillar.accent === "secondary",
+                  "bg-success/10 border-success/20": pillar.accent === "success",
+                },
+              ]}
+            >
+              <PillarIcon
+                class:list={[
+                  "w-6 h-6",
+                  {
+                    "text-accent": pillar.accent === "accent",
+                    "text-secondary": pillar.accent === "secondary",
+                    "text-success": pillar.accent === "success",
+                  },
+                ]}
+              />
+            </div>
+            <h3 class="font-semibold text-text-primary text-lg mb-4">
+              {pillar.title}
+            </h3>
+            <ul class="space-y-2.5">
+              {pillar.points.map((point) => (
+                <li class="flex items-start gap-2.5 text-sm text-text-secondary leading-relaxed">
+                  <span
+                    class:list={[
+                      "mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0",
+                      {
+                        "bg-accent/60": pillar.accent === "accent",
+                        "bg-secondary/60": pillar.accent === "secondary",
+                        "bg-success/60": pillar.accent === "success",
+                      },
+                    ]}
+                  />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>

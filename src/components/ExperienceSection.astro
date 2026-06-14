@@ -1,26 +1,25 @@
 ---
 import { experience } from "../data/experience";
 import ExperiencePoint from "./ExperiencePoint.astro";
-import { Briefcase } from "@lucide/astro";
+import SectionHeading from "./SectionHeading.astro";
 ---
 
-<section id="experience" class="w-full py-20">
-    <!-- Section Header -->
-    <div class="flex items-center gap-4 mb-12" data-reveal>
-        <div class="p-3 rounded-xl bg-accent/10 border border-accent/20">
-            <Briefcase class="w-6 h-6 text-accent" />
-        </div>
-        <div>
-            <h2 class="font-display text-3xl font-bold text-text-primary">Work Experience</h2>
-            <p class="text-text-secondary mt-1">My professional journey</p>
-        </div>
-    </div>
+<section id="experience" class="w-full py-20 md:py-28">
+    <SectionHeading
+        index="02"
+        label="Experience"
+        title="Where I've shipped."
+        subtitle="Three years across startups, applied-research teams, and my own software company."
+    />
 
     <!-- Timeline -->
     <div class="relative">
         <!-- Timeline line -->
-        <div class="absolute left-0 md:left-8 top-6 bottom-0 w-px bg-gradient-to-b from-accent via-secondary to-transparent"></div>
-        
+        <div
+            class="absolute left-0 md:left-8 top-6 bottom-0 w-px bg-gradient-to-b from-accent via-secondary to-transparent"
+        >
+        </div>
+
         <!-- Experience items -->
         <div class="space-y-8">
             {experience.map((exp, index) => (

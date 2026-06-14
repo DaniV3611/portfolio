@@ -7,6 +7,7 @@ import {
   Linkedin,
   Mail,
   Menu,
+  User,
   Wrench,
   X,
 } from "lucide-react";
@@ -16,18 +17,30 @@ import ThemeToggle from "../ThemeToggle";
 import "./Header.css";
 
 const navItems = [
-  { href: "/#", label: "Home", icon: Home },
-  { href: "/#experience", label: "Experience", icon: Briefcase },
-  { href: "/#education", label: "Education", icon: GraduationCap },
-  { href: "/#projects", label: "Projects", icon: Code },
-  { href: "/#skills", label: "Skills", icon: Wrench },
-  { href: "/#contact", label: "Contact", icon: Mail },
+  { id: "home", href: "/#home", label: "Home", icon: Home },
+  { id: "about", href: "/#about", label: "About", icon: User },
+  {
+    id: "experience",
+    href: "/#experience",
+    label: "Experience",
+    icon: Briefcase,
+  },
+  { id: "projects", href: "/#projects", label: "Projects", icon: Code },
+  { id: "skills", href: "/#skills", label: "Skills", icon: Wrench },
+  {
+    id: "education",
+    href: "/#education",
+    label: "Education",
+    icon: GraduationCap,
+  },
+  { id: "contact", href: "/#contact", label: "Contact", icon: Mail },
 ];
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [activeId, setActiveId] = useState("home");
   const asideRef = useRef<HTMLElement>(null);
   const isMobile = useMobile();
 
@@ -37,6 +50,25 @@ const Header = () => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Scroll-spy: highlight the section currently in view
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveId(entry.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -123,7 +155,9 @@ const Header = () => {
         >
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-border">
-            <span className="text-lg font-semibold gradient-text">Menu</span>
+            <span className="text-lg font-semibold gradient-text font-display">
+              Menu
+            </span>
             <button
               className="p-2 rounded-lg hover:bg-surface-elevated transition-colors"
               onClick={handleClose}
@@ -134,20 +168,31 @@ const Header = () => {
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 p-4">
-            <ul className="space-y-2">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    onClick={handleNavClick}
-                    className="flex items-center gap-3 px-4 py-3 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all duration-200 group"
-                  >
-                    <item.icon className="w-5 h-5 group-hover:text-accent transition-colors" />
-                    <span className="font-medium">{item.label}</span>
-                  </a>
-                </li>
-              ))}
+          <nav className="flex-1 p-4 overflow-y-auto">
+            <ul className="space-y-1.5">
+              {navItems.map((item) => {
+                const active = activeId === item.id;
+                return (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      onClick={handleNavClick}
+                      className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 group ${
+                        active
+                          ? "bg-accent/10 text-accent"
+                          : "text-text-secondary hover:text-text-primary hover:bg-surface-elevated"
+                      }`}
+                    >
+                      <item.icon
+                        className={`w-5 h-5 transition-colors ${
+                          active ? "text-accent" : "group-hover:text-accent"
+                        }`}
+                      />
+                      <span className="font-medium">{item.label}</span>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
@@ -202,20 +247,27 @@ const Header = () => {
           : "bg-transparent"
       } rounded-full px-2`}
     >
-      <nav className="flex items-center h-12 px-4">
+      <nav className="flex items-center h-12">
         <ul className="flex items-center gap-1">
-          {navItems.map((item, index) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                className={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-surface-elevated/50 transition-all duration-200 animate-fade-in-down`}
-                style={{ animationDelay: `${(index + 1) * 100}ms` }}
-              >
-                <item.icon className="w-4 h-4" />
-                <span className="hidden lg:inline">{item.label}</span>
-              </a>
-            </li>
-          ))}
+          {navItems.map((item, index) => {
+            const active = activeId === item.id;
+            return (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 animate-fade-in-down ${
+                    active
+                      ? "text-accent bg-accent/10"
+                      : "text-text-secondary hover:text-text-primary hover:bg-surface-elevated/50"
+                  }`}
+                  style={{ animationDelay: `${(index + 1) * 80}ms` }}
+                >
+                  <item.icon className="w-4 h-4" />
+                  <span className="hidden lg:inline">{item.label}</span>
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Social icons for desktop */}

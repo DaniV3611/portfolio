@@ -83,7 +83,7 @@ const ThemeToggle = ({ align = "right", className = "" }: ThemeToggleProps) => {
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch {
-      /* storage may be unavailable (private mode) — theme still applies */
+      /* storage may be unavailable (private mode); theme still applies */
     }
 
     const commit = () => applyTheme(next);

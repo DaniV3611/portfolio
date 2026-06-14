@@ -1,62 +1,110 @@
 ---
-import { ArrowDown, Mail } from "@lucide/astro";
+import { ArrowDown, Mail, Github, Linkedin } from "@lucide/astro";
 import TechCarousel from "./TechCarousel.astro";
 ---
 
-<section id="home" class="flex flex-col justify-center w-full min-h-dvh py-20">
-    <!-- Main heading -->
-    <div class="space-y-4 mb-8">
-        <p
-            class="text-text-secondary text-lg animate-fade-in-down animate-delay-100"
-        >
-            Hello, I'm
-        </p>
-        <h1
-            class="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight animate-fade-in-right animate-delay-200"
-        >
-            <span class="gradient-text">Daniel Velasco</span>
-        </h1>
-        <h2
-            class="text-2xl md:text-3xl lg:text-4xl font-semibold text-text-secondary animate-fade-in-right animate-delay-300"
-        >
-            AI Systems & Full-Stack Developer
-        </h2>
+<section
+    id="home"
+    class="flex flex-col justify-center w-full hero-min py-24 md:py-28"
+>
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12 items-center">
+        <!-- Left: statement -->
+        <div class="lg:col-span-3">
+            <p class="eyebrow mb-6 animate-fade-in-down animate-delay-100">
+                AI Systems &amp; Full-Stack Developer
+            </p>
+
+            <h1
+                class="font-display text-5xl md:text-7xl lg:text-[5.25rem] leading-[0.95] font-extrabold tracking-tight animate-fade-in-right animate-delay-200"
+            >
+                <span class="gradient-text-animated">Daniel Velasco</span>
+            </h1>
+
+            <p
+                class="mt-7 text-lg md:text-xl text-text-secondary leading-relaxed max-w-xl animate-fade-in-up animate-delay-400"
+            >
+                I build AI systems and full-stack products that ship to
+                <span class="text-text-primary font-semibold">production</span>,
+                from RAG pipelines and autonomous agents to SaaS platforms, owned
+                end to end from architecture to cloud deployment.
+            </p>
+
+            <!-- CTAs -->
+            <div
+                class="flex flex-wrap items-center gap-4 mt-9 animate-fade-in-up animate-delay-500"
+            >
+                <a
+                    href="mailto:dvelascogz@gmail.com"
+                    class="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent-muted hover:from-accent-hover hover:to-accent text-white font-medium rounded-xl transition-all duration-300 glow-accent-hover"
+                >
+                    <Mail size={18} />
+                    Get in touch
+                </a>
+                <a
+                    href="/#projects"
+                    class="inline-flex items-center gap-2 px-6 py-3 glass-card card-lift text-text-primary font-medium rounded-xl"
+                >
+                    View my work
+                    <ArrowDown size={16} class="animate-bounce" />
+                </a>
+
+                <div class="flex items-center gap-1 ml-1">
+                    <a
+                        href="https://github.com/daniv3611"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="p-2.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all duration-200"
+                        aria-label="GitHub"
+                    >
+                        <Github class="w-5 h-5" />
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/daniel-velasco-gonzalez-1831a12b5/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="p-2.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all duration-200"
+                        aria-label="LinkedIn"
+                    >
+                        <Linkedin class="w-5 h-5" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: code card -->
+        <div class="lg:col-span-2 animate-fade-in-up animate-delay-300">
+            <div
+                class="p-[1px] rounded-2xl bg-gradient-to-br from-accent/40 via-border to-secondary/30 glow-accent"
+            >
+                <div class="rounded-[15px] bg-surface overflow-hidden">
+                    <!-- Window bar -->
+                    <div
+                        class="flex items-center gap-2 px-4 py-3 border-b border-border bg-surface-elevated/50"
+                    >
+                        <span class="window-dot bg-red-400/80"></span>
+                        <span class="window-dot bg-yellow-400/80"></span>
+                        <span class="window-dot bg-green-400/80"></span>
+                        <span class="ml-2 text-xs font-mono text-text-muted"
+                            >daniel.ts</span
+                        >
+                    </div>
+                    <!-- Code -->
+                    <pre
+                        class="p-4 md:p-5 text-xs md:text-[0.8rem] font-mono leading-relaxed overflow-hidden"><code><span class="text-secondary">const</span> <span class="text-accent">daniel</span> <span class="text-text-muted">=</span> <span class="text-text-muted">{`{`}</span>
+  <span class="text-text-secondary">role</span><span class="text-text-muted">:</span>  <span class="text-success">"AI & Full-Stack Dev"</span><span class="text-text-muted">,</span>
+  <span class="text-text-secondary">based</span><span class="text-text-muted">:</span> <span class="text-success">"Bogotá, Colombia"</span><span class="text-text-muted">,</span>
+  <span class="text-text-secondary">focus</span><span class="text-text-muted">:</span> <span class="text-text-muted">[</span><span class="text-success">"RAG"</span><span class="text-text-muted">,</span> <span class="text-success">"agents"</span><span class="text-text-muted">,</span> <span class="text-success">"SaaS"</span><span class="text-text-muted">],</span>
+  <span class="text-text-secondary">stack</span><span class="text-text-muted">:</span> <span class="text-text-muted">[</span><span class="text-success">"FastAPI"</span><span class="text-text-muted">,</span> <span class="text-success">"React"</span><span class="text-text-muted">],</span>
+  <span class="text-text-secondary">status</span><span class="text-text-muted">:</span> <span class="text-accent">"available"</span><span class="text-text-muted">,</span>
+<span class="text-text-muted">{`}`}</span><span class="text-text-muted">;</span></code></pre>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Description -->
-    <p
-        class="text-lg text-text-secondary leading-relaxed max-w-2xl mb-10 animate-fade-in-up animate-delay-400"
-    >
-        I build <span class="text-text-primary font-medium">AI agents</span>,
-        and
-        <span class="text-text-primary font-medium">SaaS platforms</span> — from architecture
-        design to <span class="text-accent">production deployment</span>.
-        Specialized in <span class="text-accent">FastAPI</span>,
-        <span class="text-secondary">LangGraph</span>, and
-        <span class="text-accent">React</span>.
-    </p>
-
-    <!-- CTA Buttons -->
-    <div class="flex flex-wrap gap-4 animate-fade-in-up animate-delay-500">
-        <a
-            href="mailto:dvelascogz@gmail.com"
-            class="group inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-accent to-accent-muted hover:from-accent-hover hover:to-accent-muted text-white font-medium rounded-lg transition-all duration-300 glow-accent-hover"
-        >
-            <Mail size={16} />
-            Get in touch
-        </a>
-        <a
-            href="/#projects"
-            class="inline-flex items-center gap-2 px-6 py-2 bg-surface hover:bg-surface-elevated border border-border hover:border-border-hover text-text-primary font-medium rounded-lg transition-all duration-300"
-        >
-            View my work
-            <ArrowDown size={16} class="animate-bounce" />
-        </a>
-    </div>
-
-    <!-- Tech stack preview -->
-    <div class="mt-16 animate-fade-in-up animate-delay-700">
-        <p class="text-text-muted text-sm mb-4 uppercase tracking-wider">
+    <!-- Tech stack carousel -->
+    <div class="mt-16 lg:mt-20 animate-fade-in-up animate-delay-700">
+        <p class="text-text-muted text-sm mb-4 uppercase tracking-wider font-mono">
             Tech I work with
         </p>
         <TechCarousel />
