@@ -2,9 +2,7 @@ import {
   Briefcase,
   Code,
   GraduationCap,
-  Github,
   Home,
-  Linkedin,
   Mail,
   Menu,
   User,
@@ -13,6 +11,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import useMobile from "../../hooks/useMobile";
+import { Github, Linkedin } from "../BrandIcons";
 import ThemeToggle from "../ThemeToggle";
 import "./Header.css";
 

@@ -1,5 +1,6 @@
 ---
-import { ArrowDown, Mail, Github, Linkedin } from "@lucide/astro";
+import { ArrowDown, FileDown, Mail } from "@lucide/astro";
+import { Github, Linkedin } from "./BrandIcons";
 import TechCarousel from "./TechCarousel.astro";
 ---
 
@@ -11,7 +12,7 @@ import TechCarousel from "./TechCarousel.astro";
         <!-- Left: statement -->
         <div class="lg:col-span-3">
             <p class="eyebrow mb-6 animate-fade-in-down animate-delay-100">
-                AI Systems &amp; Full-Stack Developer
+                AI Engineer @ Nimble Gravity
             </p>
 
             <h1
@@ -23,10 +24,10 @@ import TechCarousel from "./TechCarousel.astro";
             <p
                 class="mt-7 text-lg md:text-xl text-text-secondary leading-relaxed max-w-xl animate-fade-in-up animate-delay-400"
             >
-                I build AI systems and full-stack products that ship to
+                I build RAG systems, LLM agents and the full-stack apps around
+                them. Most of it is running in
                 <span class="text-text-primary font-semibold">production</span>,
-                from RAG pipelines and autonomous agents to SaaS platforms, owned
-                end to end from architecture to cloud deployment.
+                used by lawyers, businesses and internal teams.
             </p>
 
             <!-- CTAs -->
@@ -56,7 +57,7 @@ import TechCarousel from "./TechCarousel.astro";
                         class="p-2.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all duration-200"
                         aria-label="GitHub"
                     >
-                        <Github class="w-5 h-5" />
+                        <Github className="w-5 h-5" />
                     </a>
                     <a
                         href="https://www.linkedin.com/in/daniel-velasco-gonzalez-1831a12b5/"
@@ -65,10 +66,20 @@ import TechCarousel from "./TechCarousel.astro";
                         class="p-2.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-all duration-200"
                         aria-label="LinkedIn"
                     >
-                        <Linkedin class="w-5 h-5" />
+                        <Linkedin className="w-5 h-5" />
                     </a>
                 </div>
             </div>
+
+            <!-- Discreet CV link: jumps to the real download buttons in Contact -->
+            <a
+                href="/#cv"
+                class="group inline-flex items-center gap-2 mt-6 text-sm text-text-secondary hover:text-accent transition-colors duration-200 animate-fade-in-up animate-delay-600"
+            >
+                <FileDown size={16} class="text-text-muted group-hover:text-accent transition-colors duration-200" />
+                <span class="link-underline">Download CV</span>
+                <span class="text-text-muted">English · Español</span>
+            </a>
         </div>
 
         <!-- Right: code card -->
@@ -91,11 +102,11 @@ import TechCarousel from "./TechCarousel.astro";
                     <!-- Code -->
                     <pre
                         class="p-4 md:p-5 text-xs md:text-[0.8rem] font-mono leading-relaxed overflow-hidden"><code><span class="text-secondary">const</span> <span class="text-accent">daniel</span> <span class="text-text-muted">=</span> <span class="text-text-muted">{`{`}</span>
-  <span class="text-text-secondary">role</span><span class="text-text-muted">:</span>  <span class="text-success">"AI & Full-Stack Dev"</span><span class="text-text-muted">,</span>
+  <span class="text-text-secondary">role</span><span class="text-text-muted">:</span>  <span class="text-success">"AI Engineer"</span><span class="text-text-muted">,</span>
   <span class="text-text-secondary">based</span><span class="text-text-muted">:</span> <span class="text-success">"Bogotá, Colombia"</span><span class="text-text-muted">,</span>
   <span class="text-text-secondary">focus</span><span class="text-text-muted">:</span> <span class="text-text-muted">[</span><span class="text-success">"RAG"</span><span class="text-text-muted">,</span> <span class="text-success">"agents"</span><span class="text-text-muted">,</span> <span class="text-success">"SaaS"</span><span class="text-text-muted">],</span>
   <span class="text-text-secondary">stack</span><span class="text-text-muted">:</span> <span class="text-text-muted">[</span><span class="text-success">"FastAPI"</span><span class="text-text-muted">,</span> <span class="text-success">"React"</span><span class="text-text-muted">],</span>
-  <span class="text-text-secondary">status</span><span class="text-text-muted">:</span> <span class="text-accent">"available"</span><span class="text-text-muted">,</span>
+  <span class="text-text-secondary">at</span><span class="text-text-muted">:</span>    <span class="text-accent">"Nimble Gravity"</span><span class="text-text-muted">,</span>
 <span class="text-text-muted">{`}`}</span><span class="text-text-muted">;</span></code></pre>
                 </div>
             </div>

@@ -59,8 +59,8 @@ const cardStyles: CardStyle[] = [
     <SectionHeading
         index="03"
         label="Projects"
-        title="Things I've built & led."
-        subtitle="Production systems and ventures, owned from architecture to deployment."
+        title="Selected projects"
+        subtitle="Two systems I designed and built, both used by real people."
     />
 
     <!-- Featured Project -->
@@ -145,7 +145,7 @@ const cardStyles: CardStyle[] = [
     ))}
 
     <!-- Regular Projects Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class={`grid grid-cols-1 gap-6 ${regular.length > 1 ? "md:grid-cols-2" : ""}`}>
         {regular.map((project, index) => {
             const style = cardStyles[index % cardStyles.length];
             const IconComponent = style.icon;

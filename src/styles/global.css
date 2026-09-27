@@ -575,3 +575,20 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .gradient-text-animated { animation: none; }
 }
+
+/* ----------------------------------------------------------------------- */
+/* CV download buttons: pulse once when reached through the /#cv link      */
+/* ----------------------------------------------------------------------- */
+
+@keyframes cv-pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+  100% { box-shadow: 0 0 0 14px color-mix(in srgb, var(--accent) 0%, transparent); }
+}
+
+#cv:target .cv-download {
+  animation: cv-pulse 1.2s ease-out 0.5s 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #cv:target .cv-download { animation: none; }
+}

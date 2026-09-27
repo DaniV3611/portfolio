@@ -1,14 +1,20 @@
 ---
 import SectionHeading from "./SectionHeading.astro";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, ArrowUpRight } from "@lucide/astro";
+import { Mail, MapPin, Send, ArrowUpRight, FileDown } from "@lucide/astro";
+import { Github, Linkedin } from "./BrandIcons";
+
+const cvs = [
+    { label: "English", href: "/cv/Daniel-Velasco-CV-EN.pdf" },
+    { label: "Español", href: "/cv/Daniel-Velasco-CV-ES.pdf" },
+];
 ---
 
 <section id="contact" class="w-full py-20 md:py-28">
     <SectionHeading
         index="06"
         label="Contact"
-        title="Let's build something."
-        subtitle="Open to roles, collaborations and freelance work. I usually reply within a day."
+        title="Get in touch"
+        subtitle="I'm not looking for a new job right now, but I'm happy to talk about AI projects, RAG or agents."
     />
 
     <!-- Contact Card -->
@@ -22,12 +28,10 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin, ArrowUpRight } from "@luci
             <div class="space-y-6">
                 <div>
                     <h3 class="font-display text-2xl font-bold text-text-primary mb-3">
-                        Have a project, role, or idea?
+                        Want to talk?
                     </h3>
                     <p class="text-text-secondary leading-relaxed">
-                        Whether you're hiring, want to ship an AI feature, or just want to
-                        talk architecture, my inbox is open. Let's make something that
-                        makes it to production.
+                        Email is the best way to reach me. I usually reply within a day.
                     </p>
                 </div>
 
@@ -45,20 +49,6 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin, ArrowUpRight } from "@luci
                             <p class="text-text-primary font-medium group-hover:text-accent transition-colors truncate">dvelascogz@gmail.com</p>
                         </div>
                         <ArrowUpRight class="w-5 h-5 text-text-muted group-hover:text-accent transition-colors" />
-                    </a>
-
-                    <a
-                        href="tel:+573209168731"
-                        class="flex items-center gap-4 p-4 rounded-xl bg-surface-elevated border border-border hover:border-secondary/50 card-lift group"
-                    >
-                        <div class="p-3 rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                            <Phone class="w-5 h-5 text-secondary" />
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-sm text-text-muted">Phone</p>
-                            <p class="text-text-primary font-medium group-hover:text-secondary transition-colors">+57 320 916 8731</p>
-                        </div>
-                        <ArrowUpRight class="w-5 h-5 text-text-muted group-hover:text-secondary transition-colors" />
                     </a>
 
                     <div class="flex items-center gap-4 p-4 rounded-xl bg-surface-elevated border border-border">
@@ -84,7 +74,7 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin, ArrowUpRight } from "@luci
                             rel="noopener noreferrer"
                             class="flex items-center gap-3 px-5 py-4 rounded-xl bg-surface-elevated border border-border hover:border-accent/50 card-lift group"
                         >
-                            <Github class="w-5 h-5 text-text-secondary group-hover:text-accent transition-colors" />
+                            <Github className="w-5 h-5 text-text-secondary group-hover:text-accent transition-colors" />
                             <span class="font-medium text-text-secondary group-hover:text-text-primary transition-colors">GitHub</span>
                         </a>
                         <a
@@ -93,9 +83,30 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin, ArrowUpRight } from "@luci
                             rel="noopener noreferrer"
                             class="flex items-center gap-3 px-5 py-4 rounded-xl bg-surface-elevated border border-border hover:border-secondary/50 card-lift group"
                         >
-                            <Linkedin class="w-5 h-5 text-text-secondary group-hover:text-secondary transition-colors" />
+                            <Linkedin className="w-5 h-5 text-text-secondary group-hover:text-secondary transition-colors" />
                             <span class="font-medium text-text-secondary group-hover:text-text-primary transition-colors">LinkedIn</span>
                         </a>
+                    </div>
+                </div>
+
+                <!-- CV downloads (target of the hero "Download CV" link) -->
+                <div id="cv">
+                    <p class="text-sm text-text-muted uppercase tracking-wider mb-4 font-mono">Download my CV</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {cvs.map((cv) => (
+                            <a
+                                href={cv.href}
+                                download
+                                class="cv-download flex items-center gap-3 px-5 py-4 rounded-xl bg-accent/10 border border-accent/30 hover:border-accent/60 hover:bg-accent/15 card-lift group"
+                                aria-label={`Download CV in ${cv.label} (PDF)`}
+                            >
+                                <FileDown class="w-5 h-5 text-accent" />
+                                <span class="flex-1">
+                                    <span class="block font-medium text-text-primary">{cv.label}</span>
+                                    <span class="block text-xs text-text-muted">PDF · 1 page</span>
+                                </span>
+                            </a>
+                        ))}
                     </div>
                 </div>
 
@@ -105,7 +116,7 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin, ArrowUpRight } from "@luci
                     class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-accent to-accent-muted hover:from-accent-hover hover:to-accent text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-accent/25 hover:shadow-accent/40 glow-accent-hover"
                 >
                     <Send class="w-5 h-5" />
-                    Send me a message
+                    Email me
                 </a>
             </div>
         </div>

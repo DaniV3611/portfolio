@@ -1,15 +1,16 @@
 ---
 import { education } from "../data/education";
+import { certifications } from "../data/certifications";
 import SectionHeading from "./SectionHeading.astro";
-import { MapPin, Calendar, Award } from "@lucide/astro";
+import { Icon } from "astro-icon/components";
+import { MapPin, Calendar, Award, BadgeCheck, ExternalLink } from "@lucide/astro";
 ---
 
 <section id="education" class="w-full py-20 md:py-28">
     <SectionHeading
         index="05"
         label="Education"
-        title="Academic foundation."
-        subtitle="Computer Science & AI Engineering, on an honors track."
+        title="Education & certifications"
     />
 
     <!-- Education Cards -->
@@ -63,4 +64,38 @@ import { MapPin, Calendar, Award } from "@lucide/astro";
             </div>
         ))}
     </div>
+
+    <!-- Certifications -->
+    {certifications.length > 0 && (
+        <div class="mt-10">
+            <div class="flex items-center gap-2 mb-4">
+                <BadgeCheck class="w-4 h-4 text-accent" />
+                <h3 class="text-sm font-medium uppercase tracking-wider font-mono text-text-secondary">Certifications</h3>
+            </div>
+            <div class="grid gap-4 md:grid-cols-2">
+                {certifications.map((cert) => (
+                    <div class="flex items-center gap-4 p-5 rounded-2xl glass-card card-lift" data-reveal>
+                        <div class="flex items-center justify-center w-11 h-11 rounded-xl bg-surface-elevated border border-border flex-shrink-0">
+                            <Icon name={cert.icon} class="w-6 h-6" />
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="font-semibold text-text-primary leading-snug">{cert.name}</p>
+                            <p class="text-sm text-text-secondary mt-0.5">{cert.issuer} · {cert.date}</p>
+                        </div>
+                        {cert.url && (
+                            <a
+                                href={cert.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Verify ${cert.name}`}
+                                class="text-text-muted hover:text-accent transition-colors"
+                            >
+                                <ExternalLink class="w-4 h-4" />
+                            </a>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+    )}
 </section>

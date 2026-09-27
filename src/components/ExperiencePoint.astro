@@ -1,5 +1,5 @@
 ---
-import { MapPin, Calendar } from "@lucide/astro";
+import { MapPin, Calendar, ArrowUpRight } from "@lucide/astro";
 
 interface Props {
     experience: {
@@ -9,6 +9,7 @@ interface Props {
         endDate: string;
         location: string;
         responsibilities: string[];
+        url?: string;
     };
     index: number;
 }
@@ -39,7 +40,19 @@ const isPresent = experience.endDate === "Present";
                 <h3 class="text-xl font-semibold text-text-primary transition-colors duration-300">
                     {experience.position}
                 </h3>
-                <p class="text-lg font-medium gradient-text mt-1">{experience.company}</p>
+                {experience.url ? (
+                    <a
+                        href={experience.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="group/company inline-flex items-center gap-1 mt-1 text-lg font-medium"
+                    >
+                        <span class="gradient-text">{experience.company}</span>
+                        <ArrowUpRight class="w-4 h-4 text-text-muted transition-all duration-200 group-hover/company:text-accent group-hover/company:-translate-y-0.5 group-hover/company:translate-x-0.5" />
+                    </a>
+                ) : (
+                    <p class="text-lg font-medium gradient-text mt-1">{experience.company}</p>
+                )}
             </div>
             <div class="flex flex-col gap-2 text-sm text-text-secondary">
                 <div class="flex items-center gap-2">

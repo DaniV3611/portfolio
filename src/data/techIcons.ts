@@ -13,8 +13,6 @@ export const techIcons: Record<string, string> = {
   "TypeScript": "logos:typescript-icon",
   "JavaScript": "logos:javascript",
   "SQL": "lucide:database",
-  "Java": "logos:java",
-  "C#": "logos:c-sharp",
   "HTML/CSS": "logos:html-5",
   "Golang": "logos:go",
 
@@ -28,14 +26,15 @@ export const techIcons: Record<string, string> = {
   // Backend
   "FastAPI": "logos:fastapi-icon",
   "Django": "logos:django-icon",
-  "Flask": "simple-icons:flask",
-  ".NET": "logos:dotnet",
   "Node.js": "logos:nodejs-icon",
 
   // AI & Data
   "LangGraph": "lucide:workflow",
   "RAG Systems": "lucide:database-zap",
   "MCP": "lucide:plug",
+  "Claude API": "logos:claude-icon",
+  "Embeddings": "lucide:chart-scatter",
+  "LLM Evaluation": "lucide:gauge",
   "Chroma": "lucide:layers",
   "Ollama": "simple-icons:ollama",
   "Pandas": "logos:pandas-icon",
@@ -44,6 +43,7 @@ export const techIcons: Record<string, string> = {
   // Cloud & DevOps
   "Docker": "logos:docker-icon",
   "AWS": "logos:aws",
+  "Azure": "logos:microsoft-azure",
   "Railway": "simple-icons:railway",
   "Google Cloud Platform": "logos:google-cloud",
 
@@ -52,7 +52,6 @@ export const techIcons: Record<string, string> = {
   "MySQL": "logos:mysql-icon",
   "MongoDB": "logos:mongodb-icon",
   "Firebase": "logos:firebase",
-  "Oracle SQL": "logos:oracle",
 };
 
 /** Fallback glyph for any tech not present in the map. */

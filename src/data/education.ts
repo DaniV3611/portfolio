@@ -11,11 +11,13 @@ export const education: TEducation[] = [
   {
     institution: "Sergio Arboleda University",
     degree: "Computer Science and Artificial Intelligence Engineering",
-    startDate: "Feb. 2022",
-    endDate: "Present",
+    startDate: "Feb 2022",
+    endDate: "Sep 2026",
     location: "Bogotá DC, Colombia",
     highlights: [
-      "Honors Program 'Rodrigo Noguera Laborde' - First and Second Distinction.",
+      "Graduated Cum Laude.",
+      "First, Second and Third Distinction in the 'Rodrigo Noguera Laborde' Honors Program.",
+      "Member of the 'Software as Innovation' research group (Feb 2025 - Jun 2026).",
     ],
   },
 ];
