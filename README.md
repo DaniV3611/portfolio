@@ -42,6 +42,7 @@ pnpm install   # install dependencies
 pnpm dev       # start dev server at http://localhost:4321
 pnpm build     # build production site to ./dist/
 pnpm preview   # preview the production build locally
+pnpm cv        # compile the LaTeX CVs into public/cv/ (needs pdflatex)
 ```
 
 ### Supply-chain hardening

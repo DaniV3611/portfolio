@@ -15,6 +15,7 @@ Personal portfolio website built with **Astro 5.x**, **React 19**, **TypeScript*
 | `pnpm dev` | Start development server at localhost:4321 |
 | `pnpm build` | Build production site to `./dist/` |
 | `pnpm preview` | Preview production build locally |
+| `pnpm cv` | Compile `cv.tex` / `cv_spanish.tex` into `public/cv/*.pdf` (needs local `pdflatex`) |
 | `pnpm astro` | Run Astro CLI commands directly |
 
 > This project is **pnpm-only**. A `preinstall` hook (`scripts/ensure-pnpm.mjs`) hard-rejects installs attempted with npm/yarn/bun. Do not suggest or run `npm install`.
