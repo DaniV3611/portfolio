@@ -8,6 +8,7 @@
 \documentclass[letterpaper,11pt]{article}
 
 \usepackage{latexsym}
+\usepackage[T1]{fontenc}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{marvosym}
@@ -59,6 +60,7 @@
 
 % Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
+\hypersetup{pdftitle={Daniel Velasco - CV}, pdfauthor={Daniel Velasco}}
 
 %-------------------------
 % Custom commands
@@ -108,51 +110,55 @@
 %----------HEADING----------
 \begin{center}
     \textbf{\Huge \scshape Daniel Velasco} \\ \vspace{1pt}
-    \small +57 320-916-8731 $|$ \href{mailto:dvelascogz@gmail.com}{\underline{dvelascogz@gmail.com}} $|$ \href{https://daniel-velasco.vercel.app/}{\underline{daniel-velasco.vercel.app}}
+    \small \href{mailto:dvelascogz@gmail.com}{\underline{dvelascogz@gmail.com}} $|$ \href{https://www.linkedin.com/in/daniel-velasco-gonzalez-1831a12b5/}{\underline{linkedin.com/in/daniel-velasco-gonzalez-1831a12b5}} $|$ \href{https://daniel-velasco.vercel.app/}{\underline{daniel-velasco.vercel.app}}
 \end{center}
 
 %-----------SUMMARY-------------
-\small AI Systems and Full-Stack Developer with production experience building RAG pipelines, AI agents, and SaaS platforms. Specialized in FastAPI, React, TypeScript, and LangGraph. Delivered end-to-end systems---from architecture design to cloud deployment---across startups and applied research environments.
-
-%-----------EDUCATION-----------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Sergio Arboleda University}{Bogotá DC, Colombia}
-      {Computer Science and Artificial Intelligence Engineering}{Feb. 2022 -- Present}
-      \resumeItemListStart
-        \resumeItem{Honors Program ``Rodrigo Noguera Laborde'' -- First and Second Distinction.}
-      \resumeItemListEnd
-  \resumeSubHeadingListEnd
-
+\small AI Engineer at Nimble Gravity with 3 years of experience building software that runs in production, most recently RAG systems and LLM agents with LangGraph and MCP. Co-founded a software company as CTO and built a SaaS used by 10+ small businesses. Comfortable across the stack: FastAPI, React, TypeScript, PostgreSQL, AWS and Azure.
 
 %-----------EXPERIENCE-----------
 \section{Experience}
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Software Developer \& AI Tools Developer}{March 2025 -- Present}
-      {Dantalabs}{Bogotá, Colombia}
+      {AI Engineer}{Jul 2026 -- Present}
+      {\href{https://nimblegravity.com}{Nimble Gravity}}{Bogotá, Colombia (Remote)}
       \resumeItemListStart
-        \resumeItem{Built production full-stack applications using FastAPI, React, TypeScript, Docker, and PostgreSQL.}
-        \resumeItem{Developed AI agents and multi-step workflows using LangGraph; designed scalable backend APIs.}
-        \resumeItem{Implemented MCP servers and integrated AI tools with Microsoft Copilot; deployed and monitored services in production.}
+        \resumeItem{Build generative AI solutions for clients, mostly RAG and semantic search over company documents.}
+        \resumeItem{Develop agents with LangGraph and MCP that process documents and automate parts of business workflows.}
+        \resumeItem{Extract structured data from PDFs, emails, spreadsheets and images, running on Azure and AWS.}
       \resumeItemListEnd
 
     \resumeSubheading
-      {Software Developer \& Data Architect}{December 2024 -- December 2025}
+      {Co-Founder \& CTO}{Jun 2025 -- Jun 2026}
+      {Tech Craft Solutions}{Bogotá, Colombia}
+      \resumeItemListStart
+        \resumeItem{Co-founded a small software company building custom AI and web solutions; chose the architecture and led development on each client project (FastAPI, React, LangGraph, PostgreSQL).}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Developer \& AI Tools Developer}{Mar 2025 -- Jul 2026}
+      {\href{https://vadian.dev}{Dantalabs (now Vadian)}}{Bogotá, Colombia (Remote)}
+      \resumeItemListStart
+        \resumeItem{Built full-stack applications with FastAPI, React, TypeScript, Docker and PostgreSQL.}
+        \resumeItem{Developed AI agents and multi-step workflows in LangGraph, plus the backend APIs behind them.}
+        \resumeItem{Built MCP servers that connect AI tools to Microsoft Copilot; deployed and monitored them in production.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Developer \& Data Architect}{Dec 2024 -- Dec 2025}
       {SAM | Automated Meteorological Services}{Bogotá, Colombia}
       \resumeItemListStart
-        \resumeItem{Architected a climate forecasting platform for solar energy systems using Python, Pandas, and Open-Meteo APIs.}
-        \resumeItem{Built React dashboards with real-time metrics; deployed Django REST backend on AWS (EC2, RDS, S3, Lambda).}
+        \resumeItem{Co-designed a weather forecasting platform for solar energy systems with Python, Pandas and Open-Meteo.}
+        \resumeItem{Built the React dashboards and the Django REST backend, deployed on AWS (EC2, RDS, S3, Lambda).}
       \resumeItemListEnd
 
     \resumeSubheading
-      {Full Stack Developer}{August 2023 -- December 2024}
+      {Full Stack Developer}{Aug 2023 -- Dec 2024}
       {Dataexco}{Duitama, Colombia}
       \resumeItemListStart
-        \resumeItem{Led migration of a legacy academic system to a modern web platform using Django and MySQL.}
-        \resumeItem{Delivered frontend interfaces and internal tooling that improved academic and administrative workflows.}
+        \resumeItem{Led the migration of a legacy academic system to a new web platform built with Django and MySQL.}
+        \resumeItem{Built the frontend and internal tools used by academic and administrative staff.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -163,39 +169,45 @@
     \resumeSubHeadingListStart
 
       \resumeProjectHeading
-          {\textbf{OrbitEngine} $|$ \emph{FastAPI, React, TypeScript, PostgreSQL, Railway} $|$ \href{https://orbitengine.lat}{\underline{orbitengine.lat}}}{Nov. 2025 -- Apr. 2026}
+          {\textbf{OrbitEngine} $|$ \emph{FastAPI, React, TypeScript, PostgreSQL, Railway} $|$ \href{https://orbitengine.lat}{\underline{orbitengine.lat}}}{Nov 2025 -- Apr 2026}
           \resumeItemListStart
-            \resumeItem{Built and deployed a multi-tenant SaaS platform centralizing inventory, client, and sales operations for SMEs.}
-            \resumeItem{Implemented real-time low-stock alerts and daily sales analytics dashboards; owned full development lifecycle from design to production maintenance.}
+            \resumeItem{Built and launched a multi-tenant SaaS that 10+ small businesses use to manage inventory, clients and sales.}
+            \resumeItem{Added real-time low-stock alerts and daily sales dashboards; handled design, deployment and maintenance.}
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\textbf{Coastal Jurisprudence AI Agent} $|$ \emph{RAG, LangGraph, FastAPI, Next.js, Chroma, Ollama, Firebase}}{Mar. 2026 -- Present}
+          {\textbf{Coastal Jurisprudence AI Agent} $|$ \emph{RAG, LangGraph, FastAPI, Next.js, Chroma, Ollama, Firebase}}{Mar 2026 -- Jun 2026}
           \resumeItemListStart
-            \resumeItem{Developed a production RAG system for Colombian coastal jurisprudence, used by lawyers for AI-assisted case research.}
-            \resumeItem{Built a PDF ingestion pipeline with Docling, Chroma vector DB, and Ollama embeddings; integrated Firebase for auth and chat persistence.}
-          \resumeItemListEnd
-
-      \resumeProjectHeading
-          {\textbf{Co-Founder \& CTO} $|$ \emph{Tech Craft Solutions}}{June 2025 -- Present}
-          \resumeItemListStart
-            \resumeItem{Founded a software company delivering custom AI-driven and full-stack solutions; defined architectures and led end-to-end development.}
+            \resumeItem{RAG assistant that lawyers use to search and ask questions about Colombian coastal jurisprudence.}
+            \resumeItem{Built the PDF ingestion pipeline (Docling, Ollama embeddings, Chroma) and the LangGraph flow that answers questions; Firebase for auth and chat history.}
           \resumeItemListEnd
 
     \resumeSubHeadingListEnd
 
 
-%
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Sergio Arboleda University}{Bogotá DC, Colombia}
+      {Computer Science and Artificial Intelligence Engineering}{Feb 2022 -- Sep 2026}
+      \resumeItemListStart
+        \resumeItem{Graduated Cum Laude. First, Second and Third Distinction in the ``Rodrigo Noguera Laborde'' Honors Program.}
+        \resumeItem{Member of the ``Software as Innovation'' research group (Feb 2025 -- Jun 2026).}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
 %-----------PROGRAMMING SKILLS-----------
-\section{Technical Skills}
+\section{Skills \& Certifications}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages}{: Python, TypeScript, JavaScript, SQL, Java, C\#, HTML/CSS, Golang} \\
-     \textbf{Frontend}{: React, Next.js, TailwindCSS, TanStack, ShadCN} \\
-     \textbf{Backend}{: FastAPI, Django, Flask, .NET, Node.js} \\
-     \textbf{AI \& Data}{: LangGraph, RAG systems, MCP, Chroma, Ollama, Pandas, NumPy} \\
-     \textbf{Cloud \& DevOps}{: Docker, AWS (EC2/RDS/S3/Lambda), Railway, Google Cloud Platform} \\
-     \textbf{Databases}{: PostgreSQL, MySQL, MongoDB, Firebase, Oracle SQL}
+     \textbf{AI \& Data}{: LangGraph, RAG systems, MCP, Claude API, Embeddings, LLM Evaluation, Chroma, Ollama, Pandas, NumPy} \\
+     \textbf{Languages}{: Python, TypeScript, JavaScript, SQL, HTML/CSS, Golang} \\
+     \textbf{Web}{: React, Next.js, TailwindCSS, TanStack, ShadCN, FastAPI, Django, Node.js} \\
+     \textbf{Cloud \& DevOps}{: Docker, AWS (EC2/RDS/S3/Lambda), Azure, Railway, Google Cloud Platform} \\
+     \textbf{Databases}{: PostgreSQL, MySQL, MongoDB, Firebase} \\
+     \textbf{Certifications}{: Claude Certified Developer - Foundations (Anthropic, Aug 2026)}
     }}
  \end{itemize}
 

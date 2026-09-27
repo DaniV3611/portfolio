@@ -8,6 +8,7 @@
 \documentclass[letterpaper,11pt]{article}
 
 \usepackage{latexsym}
+\usepackage[T1]{fontenc}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{marvosym}
@@ -59,6 +60,7 @@
 
 % Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
+\hypersetup{pdftitle={Daniel Velasco - Hoja de vida}, pdfauthor={Daniel Velasco}}
 
 %-------------------------
 % Custom commands
@@ -108,51 +110,55 @@
 %----------HEADING----------
 \begin{center}
     \textbf{\Huge \scshape Daniel Velasco} \\ \vspace{1pt}
-    \small +57 320-916-8731 $|$ \href{mailto:dvelascogz@gmail.com}{\underline{dvelascogz@gmail.com}} $|$ \href{https://daniel-velasco.vercel.app/}{\underline{daniel-velasco.vercel.app}}
+    \small \href{mailto:dvelascogz@gmail.com}{\underline{dvelascogz@gmail.com}} $|$ \href{https://www.linkedin.com/in/daniel-velasco-gonzalez-1831a12b5/}{\underline{linkedin.com/in/daniel-velasco-gonzalez-1831a12b5}} $|$ \href{https://daniel-velasco.vercel.app/}{\underline{daniel-velasco.vercel.app}}
 \end{center}
 
 %-----------PERFIL-------------
-\small Desarrollador de Sistemas de IA y Full-Stack con experiencia en producción construyendo pipelines RAG, agentes de IA y plataformas SaaS. Especializado en FastAPI, React, TypeScript y LangGraph. Entrega de sistemas completos---desde diseño de arquitectura hasta despliegue en la nube---en entornos de startups e investigación aplicada.
-
-%-----------EDUCACIÓN-----------
-\section{Educación}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Universidad Sergio Arboleda}{Bogotá D.C., Colombia}
-      {Ingeniería en Ciencias de la Computación e Inteligencia Artificial}{Feb. 2022 -- Actualidad}
-      \resumeItemListStart
-        \resumeItem{Programa de Honores ``Rodrigo Noguera Laborde'' -- Primera y Segunda Distinción.}
-      \resumeItemListEnd
-  \resumeSubHeadingListEnd
-
+\small AI Engineer en Nimble Gravity con 3 años de experiencia construyendo software que funciona en producción, últimamente sistemas RAG y agentes de LLM con LangGraph y MCP. Cofundé una empresa de software como CTO y construí un SaaS que usan más de 10 PyMES. Trabajo en todo el stack: FastAPI, React, TypeScript, PostgreSQL, AWS y Azure.
 
 %-----------EXPERIENCIA-----------
 \section{Experiencia}
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Desarrollador de Software y Herramientas de IA}{Marzo 2025 -- Actualidad}
-      {Dantalabs}{Bogotá, Colombia}
+      {AI Engineer}{Jul 2026 -- Actualidad}
+      {\href{https://nimblegravity.com}{Nimble Gravity}}{Bogotá, Colombia (Remoto)}
       \resumeItemListStart
-        \resumeItem{Desarrollé aplicaciones full-stack en producción usando FastAPI, React, TypeScript, Docker y PostgreSQL.}
-        \resumeItem{Construí agentes de IA y flujos de trabajo multi-paso con LangGraph; diseñé APIs backend escalables.}
-        \resumeItem{Implementé servidores MCP e integré herramientas de IA con Microsoft Copilot; desplegué y monitoreé servicios en producción.}
+        \resumeItem{Construyo soluciones de IA generativa para clientes, sobre todo RAG y búsqueda semántica en documentos.}
+        \resumeItem{Desarrollo agentes con LangGraph y MCP que procesan documentos y automatizan partes de procesos de negocio.}
+        \resumeItem{Extraigo datos estructurados de PDFs, correos, hojas de cálculo e imágenes, sobre Azure y AWS.}
       \resumeItemListEnd
 
     \resumeSubheading
-      {Desarrollador de Software y Arquitecto de Datos}{Diciembre 2024 -- Diciembre 2025}
+      {Cofundador y CTO}{Jun 2025 -- Jun 2026}
+      {Tech Craft Solutions}{Bogotá, Colombia}
+      \resumeItemListStart
+        \resumeItem{Cofundé una pequeña empresa de software de soluciones de IA y web a la medida; elegí la arquitectura y lideré el desarrollo de cada proyecto (FastAPI, React, LangGraph, PostgreSQL).}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Desarrollador de Software y Herramientas de IA}{Mar 2025 -- Jul 2026}
+      {\href{https://vadian.dev}{Dantalabs (ahora Vadian)}}{Bogotá, Colombia (Remoto)}
+      \resumeItemListStart
+        \resumeItem{Desarrollé aplicaciones full-stack con FastAPI, React, TypeScript, Docker y PostgreSQL.}
+        \resumeItem{Construí agentes de IA y flujos de varios pasos en LangGraph, junto con las APIs que los soportan.}
+        \resumeItem{Construí servidores MCP que conectan herramientas de IA con Microsoft Copilot; los desplegué y monitoreé.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Desarrollador de Software y Arquitecto de Datos}{Dic 2024 -- Dic 2025}
       {SAM | Servicios Automáticos en Meteorología}{Bogotá, Colombia}
       \resumeItemListStart
-        \resumeItem{Participé en el diseño una plataforma de pronóstico climático para sistemas de energía solar usando Python, Pandas y APIs de Open-Meteo.}
-        \resumeItem{Construí dashboards en React con métricas en tiempo real; desplegué backend Django REST en AWS (EC2, RDS, S3, Lambda).}
+        \resumeItem{Codiseñé una plataforma de pronóstico del clima para energía solar con Python, Pandas y Open-Meteo.}
+        \resumeItem{Construí los dashboards en React y el backend en Django REST, desplegado en AWS (EC2, RDS, S3, Lambda).}
       \resumeItemListEnd
 
     \resumeSubheading
-      {Desarrollador Full Stack}{Agosto 2023 -- Diciembre 2024}
+      {Desarrollador Full Stack}{Ago 2023 -- Dic 2024}
       {Dataexco}{Duitama, Colombia}
       \resumeItemListStart
-        \resumeItem{Lideré la migración de un sistema académico a una plataforma web moderna con Django y MySQL.}
-        \resumeItem{Entregué interfaces frontend y herramientas internas que mejoraron los flujos académicos y administrativos.}
+        \resumeItem{Lideré la migración de un sistema académico antiguo a una nueva plataforma web con Django y MySQL.}
+        \resumeItem{Construí el frontend y las herramientas internas que usa el personal académico y administrativo.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -163,39 +169,45 @@
     \resumeSubHeadingListStart
 
       \resumeProjectHeading
-          {\textbf{OrbitEngine} $|$ \emph{FastAPI, React, TypeScript, PostgreSQL, Railway} $|$ \href{https://orbitengine.lat}{\underline{orbitengine.lat}}}{Nov. 2025 -- Abr. 2026}
+          {\textbf{OrbitEngine} $|$ \emph{FastAPI, React, TypeScript, PostgreSQL, Railway} $|$ \href{https://orbitengine.lat}{\underline{orbitengine.lat}}}{Nov 2025 -- Abr 2026}
           \resumeItemListStart
-            \resumeItem{Desarrollé y desplegué una plataforma SaaS multi-tenant que centraliza inventario, clientes y ventas para PyMES.}
-            \resumeItem{Implementé alertas de bajo inventario en tiempo real y dashboards de métricas diarias de ventas; lideré el ciclo completo de desarrollo desde el diseño hasta el mantenimiento en producción.}
+            \resumeItem{Construí y lancé un SaaS multi-tenant que más de 10 PyMES usan para manejar inventario, clientes y ventas.}
+            \resumeItem{Agregué alertas de bajo inventario y dashboards de ventas diarias; me encargué del diseño, despliegue y soporte.}
           \resumeItemListEnd
 
       \resumeProjectHeading
-          {\textbf{Agente de Jurisprudencia Costera} $|$ \emph{RAG, LangGraph, FastAPI, Next.js, Chroma, Ollama, Firebase}}{Mar. 2026 -- Actualidad}
+          {\textbf{Agente de Jurisprudencia Costera} $|$ \emph{RAG, LangGraph, FastAPI, Next.js, Chroma, Ollama, Firebase}}{Mar 2026 -- Jun 2026}
           \resumeItemListStart
-            \resumeItem{Desarrollé un sistema RAG en producción para jurisprudencia costera colombiana, utilizado por abogados para investigación jurídica asistida por IA.}
-            \resumeItem{Construí pipeline de ingesta de PDFs con Docling, base de datos vectorial Chroma y embeddings con Ollama; integré Firebase para autenticación y persistencia de chats.}
-          \resumeItemListEnd
-
-      \resumeProjectHeading
-          {\textbf{Cofundador y CTO} $|$ \emph{Tech Craft Solutions}}{Junio 2025 -- Actualidad}
-          \resumeItemListStart
-            \resumeItem{Cofundador de una empresa de software que entrega soluciones personalizadas de IA y full-stack; defino arquitecturas y lidero el desarrollo de principio a fin.}
+            \resumeItem{Asistente RAG que usan abogados para buscar y hacer preguntas sobre jurisprudencia costera colombiana.}
+            \resumeItem{Construí la ingesta de PDFs (Docling, embeddings con Ollama, Chroma) y el flujo en LangGraph que responde las preguntas; Firebase para login e historial.}
           \resumeItemListEnd
 
     \resumeSubHeadingListEnd
 
 
-%
+%-----------EDUCACIÓN-----------
+\section{Educación}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Universidad Sergio Arboleda}{Bogotá D.C., Colombia}
+      {Ingeniería en Ciencias de la Computación e Inteligencia Artificial}{Feb 2022 -- Sep 2026}
+      \resumeItemListStart
+        \resumeItem{Grado Cum Laude. Primera, Segunda y Tercera Distinción en el Programa de Honores ``Rodrigo Noguera Laborde''.}
+        \resumeItem{Miembro del grupo de investigación ``Software como Innovación'' (Feb 2025 -- Jun 2026).}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
 %-----------HABILIDADES TÉCNICAS-----------
-\section{Habilidades Técnicas}
+\section{Habilidades y Certificaciones}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Lenguajes}{: Python, TypeScript, JavaScript, SQL, Java, C\#, HTML/CSS, Golang} \\
-     \textbf{Frontend}{: React, Next.js, TailwindCSS, TanStack, ShadCN} \\
-     \textbf{Backend}{: FastAPI, Django, Flask, .NET, Node.js} \\
-     \textbf{IA y Datos}{: LangGraph, Sistemas RAG, MCP, Chroma, Ollama, Pandas, NumPy} \\
-     \textbf{Nube y DevOps}{: Docker, AWS (EC2/RDS/S3/Lambda), Railway, Google Cloud Platform} \\
-     \textbf{Bases de Datos}{: PostgreSQL, MySQL, MongoDB, Firebase, Oracle SQL}
+     \textbf{IA y Datos}{: LangGraph, RAG, MCP, Claude API, Embeddings, Evaluación de LLMs, Chroma, Ollama, Pandas, NumPy} \\
+     \textbf{Lenguajes}{: Python, TypeScript, JavaScript, SQL, HTML/CSS, Golang} \\
+     \textbf{Web}{: React, Next.js, TailwindCSS, TanStack, ShadCN, FastAPI, Django, Node.js} \\
+     \textbf{Nube y DevOps}{: Docker, AWS (EC2/RDS/S3/Lambda), Azure, Railway, Google Cloud Platform} \\
+     \textbf{Bases de Datos}{: PostgreSQL, MySQL, MongoDB, Firebase} \\
+     \textbf{Certificaciones}{: Claude Certified Developer - Foundations (Anthropic, Ago 2026)}
     }}
  \end{itemize}
 
